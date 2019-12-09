@@ -1,0 +1,48 @@
+{% extends "layout-app-anon.html" %}
+
+{% block pageTitle %}Create an account
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/app/v1/security/signin" class="govuk-back-link">Back</a>
+{% endblock %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Create an account</h1>
+
+        <p class="govuk-body">To confirm this is your email address, we'll send you a code.</p>
+
+        <p class="govuk-body">You'll need to confirm this code in the next step to continue.</p>
+        <form method="post">
+
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="email">
+                    Email address
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email" type="text">
+            </div>
+
+
+
+            <button class="govuk-button" data-module="govuk-button" type="submit">
+                Continue
+            </button>
+        </form>
+
+    
+    </div>
+</div>
+
+
+{% endblock %}
