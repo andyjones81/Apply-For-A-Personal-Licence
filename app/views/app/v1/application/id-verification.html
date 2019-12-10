@@ -1,0 +1,126 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+What identity documents do you have?
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+<div class=" govuk-width-container">
+    <div class="navigation-service">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
+                <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
+                        href="/app/v1/application/tasks">Application tasks</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <form method="POST">
+
+
+
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="verificationmethod-conditional-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-heading-l">
+                            Who do you want to verify your identity?
+                        </h1>
+
+
+                    </legend>
+                    <p class="govuk-body">To verify your identity, you'll need to have up to 5 documents checked and
+                        verified.</p>
+                    <p class="govuk-body">Read the guidance on <a href="" target="_blank">documents that can be
+                            verified</a> (link opens in a new window)</p>
+                    <p class="govuk-body">If you're employed in the gambling industry, the quickest way to get your
+                        ID documents checked is with your employer.</p>
+                    <span id="verificationmethod-conditional-hint" class="govuk-hint">
+                        Select one option.
+                    </span>
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="verificationmethod-conditional" name="verificationmethod"
+                                type="radio" value="employer" data-aria-controls="conditional-verificationmethod-conditional" {{checked('verificationmethod','employer') }}>
+                            <label class="govuk-label govuk-radios__label" for="verificationmethod-conditional">
+                                Your employer
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-verificationmethod-conditional">
+                           
+                        <p class="govuk-body">You'll need to upload a completed <a href="" target="_blank" title="Link opens in a new window"><abbr title="Link opens in a new window">ID Verification form</abbr></a> later in the application.</p>
+
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="verificationmethod-conditional-2" name="verificationmethod"
+                                type="radio" value="thirdparty" data-aria-controls="conditional-verificationmethod-conditional-2" {{checked('verificationmethod','thirdparty') }}>
+                            <label class="govuk-label govuk-radios__label" for="verificationmethod-conditional-2">
+                                A third party such as a solicitor or the post office
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-verificationmethod-conditional-2">
+                            
+                            <p class="govuk-body">You'll need to upload certified copies of documents later in the application.</p>
+
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="verificationmethod-conditional-3" name="verificationmethod"
+                                type="radio" value="gc" data-aria-controls="conditional-verificationmethod-conditional-3" {{checked('verificationmethod','gc') }}> 
+                            <label class="govuk-label govuk-radios__label" for="verificationmethod-conditional-3">
+                                Gambling Commission
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-verificationmethod-conditional-3">
+                            
+                            <p class="govuk-body">You'll need to post your original identity documents and evidence to the Gambling Commission. We'll tell you how and where to send them to.</p>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <button type="submit" class="govuk-button">
+                Save and continue
+            </button>
+
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}

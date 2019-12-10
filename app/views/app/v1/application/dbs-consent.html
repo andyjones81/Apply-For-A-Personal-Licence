@@ -1,0 +1,213 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+Disclosure and Barring Service (DBS) consent and declarations
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+<div class=" govuk-width-container">
+    <div class="navigation-service">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
+                <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
+                        href="/app/v1/application/tasks">Application tasks</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Disclosure and Barring Service (DBS) consent and declarations
+        </h1>
+
+        <form method="POST">
+
+
+
+            <p class="govuk-body">
+                "You or I" means the applicant
+                <br /> "We, us and responsible organisation" means the Gambling Commission
+            </p>
+            <p class="govuk-body">
+                We'll carry out a basic DBS check when we process your application, this is to consider if any criminal
+                activity might have an impact on your suitability to hold a personal functional licence.
+            </p>
+            <p class="govuk-body">
+                We’ll be able to process your application faster if we get the results of the check from the DBS
+                electronically.
+            </p>
+            <p class="govuk-body">
+                But we need your permission to do that.
+            </p>
+
+            <h3 class="govuk-heading-m">
+                What we will receive from DBS
+            </h3>
+            <p class="govuk-body">
+                We will be told the outcome of the check and if there is information held about you.
+            </p>
+            <p class="govuk-body">
+                If there is information held about you, we will not know what it is. You will receive a certificate
+                containing the details.
+                In this situation, we'll ask you to send the certificate to us. If you do not send this to us we may
+                refuse your application.
+            </p>
+
+            <h2 class="govuk-heading-m">
+                Privacy Policy - basic check declaration
+            </h2>
+
+            <p class="govuk-body">
+                I have read the Basic DBS Check Processing Privacy Policy <a
+                    href="https://www.gov.uk/government/publications/dbs-privacy-policies"
+                    target="_Blank">https://www.gov.uk/government/publications/dbs-privacy-policies</a> (Link opens in
+                a
+                new window) and I understand how DBS will process my personal data.
+            </p>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="dbs-privacy-hint">
+
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="dbs-privacy-1" name="dbs-privacy" type="radio"
+                                value="yes" {{checked('dbs-privacy','yes') }}>
+                            <label class="govuk-label govuk-radios__label" for="dbs-privacy-1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="dbs-privacy-2" name="dbs-privacy" type="radio"
+                                value="no" {{checked('dbs-privacy','no') }}>
+                            <label class="govuk-label govuk-radios__label" for="dbs-privacy-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <h2 class="govuk-heading-m">
+                Consent to obtain basic check electronic result
+            </h2>
+
+            <p class="govuk-body">
+                I consent to the DBS providing an electronic result directly to the responsible organisation that has
+                submitted my application. I understand that an electronic result contains a message that indicates
+                either
+                the certificate does not contain criminal record information or to await certificate which will
+                indicate
+                that my certificate contains criminal record information.
+            </p>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        What happens if I do not consent?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    We require you to complete a basic DBS check as part of assessing your application.
+                    <br /><br />
+                    If you do not consent to us receiving the electornic result, you will need to complete this check
+                    through the Request a basic DBS check at <a href="https://www.gov.uk/request-copy-criminal-record"
+                        target="_Blank">https://www.gov.uk/request-copy-criminal-record</a> and pay an additional £25
+                    fee to DBS.
+                </div>
+            </details>
+
+
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="consent-hint">
+
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="consent-1" name="consent" type="radio" value="yes"
+                                {{checked('consent','yes') }}>
+                            <label class="govuk-label govuk-radios__label" for="consent-1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="consent-2" name="consent" type="radio" value="no"
+                                {{checked('consent','no') }}>
+                            <label class="govuk-label govuk-radios__label" for="consent-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <h2 class="govuk-heading-m">
+                Declaration by applicant
+            </h2>
+
+            <p class="govuk-body">
+                I have provided complete and true information in support of the application and I understand that
+                knowingly making a false statement for this purpose is a criminal offence.
+            </p>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="dbsdeclaration-hint">
+
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="dbsdeclaration-1" name="dbsdeclaration" type="radio"
+                                value="yes" {{checked('dbsdeclaration','yes') }}>
+                            <label class="govuk-label govuk-radios__label" for="dbsdeclaration-1">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="dbsdeclaration-2" name="dbsdeclaration" type="radio"
+                                value="no" {{checked('dbsdeclaration','no') }}>
+                            <label class="govuk-label govuk-radios__label" for="dbsdeclaration-2">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+           
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+          
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}

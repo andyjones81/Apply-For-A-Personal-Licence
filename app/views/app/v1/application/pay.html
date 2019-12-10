@@ -1,0 +1,82 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+Pay your application fee
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+<div class=" govuk-width-container">
+    <div class="navigation-service">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
+                <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
+                        href="/app/v1/application/tasks">Application tasks</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Pay your application fee of £370</h1>
+
+
+        <p class="govuk-body">
+            You are required to pay the fee using your credit or debit card. We will not start processing your
+            application until this fee is paid.
+        </p>
+
+        <h2 class="govuk-heading-m">
+            The card must be:
+        </h2>
+
+        <ul class="govuk-list govuk-list--bullet">
+            <li>in your name</li>
+            <li>registered at your home address</li>
+        </ul>
+
+        <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                We will reject your application if the payment does not meet these requirements.
+            </strong>
+        </div>
+
+        <form method="POST">
+            <button type="submit" class="govuk-button">
+                Pay using credit or debit card
+            </button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}

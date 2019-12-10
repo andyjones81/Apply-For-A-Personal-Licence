@@ -1,0 +1,59 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+Application submitted
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+        <div class="gc-notification gc-notification--info">
+            <h1 class="govuk-heading-l">Application submitted</h1>
+            <p class="govuk-body-l">Your application reference is PXL-123456.</p>
+            <p class="govuk-body">We've sent you an email confirming the details of this application.</p>
+        </div>
+
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">It can take up to 6 weeks to process a personal management licence application. We will
+            keep you informed of any updates by email and if we need any additional information from you, we'll email
+            you. </p>
+
+        <h2 class="govuk-heading-m">Application progress</h2>
+        <p class="govuk-body">You'll be able to view the progress of your application by retrieving it from the
+            submitted applications option from your application hub.</p>
+
+        <h2 class="govuk-heading-m">What do you want to do now?</h2>
+        <p class="govuk-body">You can view your <a href="/app/v1/application/progress">application progress</a>.</p>
+        <p class="govuk-body">You can return to the <a href="/applicationhub/v2/hub-with-apps-submitted">application
+                hub</a>.</p>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}

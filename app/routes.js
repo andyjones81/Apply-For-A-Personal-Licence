@@ -52,7 +52,23 @@ router.get('/app/v1/application/correspondence-address', applicationController.a
 router.get('/app/v1/application/home-overseas', applicationController.application_homeoverseas_get);
 router.get('/app/v1/application/full-address', applicationController.application_fulladdress_get);
 router.get('/app/v1/application/sex', applicationController.application_sex_get);
-
+router.get('/app/v1/application/dbs-consent', applicationController.application_dbs_consent_get);
+router.get('/app/v1/application/identity-types', applicationController.application_identity_types_get);
+router.get('/app/v1/application/driving-licence', applicationController.application_driving_licence_get);
+router.get('/app/v1/application/passport', applicationController.application_passport_get);
+router.get('/app/v1/application/national-insurance', applicationController.application_natins_get);
+router.get('/app/v1/application/id-verification', applicationController.application_id_verification_get);
+router.get('/app/v1/application/documents', applicationController.application_documents_get);
+router.get('/app/v1/application/third-party', applicationController.application_third_party_get);
+router.get('/app/v1/application/declaration', applicationController.application_declaration_get);
+router.get('/app/v1/application/pay', applicationController.application_pay_get);
+router.get('/app/v1/application/pay-cancelled', applicationController.application_pay_cancelled_get);
+router.get('/app/v1/application/pay-declined', applicationController.application_pay_declined_get);
+router.get('/app/v1/application/complete', applicationController.application_complete_get);
+router.get('/app/v1/application/complete-gc', applicationController.application_complete_gc_get);
+router.get('/app/v1/application/progress', applicationController.application_progress_get);
+router.get('/app/v1/application/progress-with-request', applicationController.application_progrees_with_request_get);
+router.get('/app/v1/application/additional-info', applicationController.application_additional_info_get);
 
 // Posts
 router.post('/app/v1/application/sector', applicationController.application_sector_post);
@@ -68,6 +84,12 @@ router.post('/app/v1/application/correspondence-address', applicationController.
 router.post('/app/v1/application/home-overseas', applicationController.application_homeoverseas_post);
 router.post('/app/v1/application/full-address', applicationController.application_fulladdress_post);
 router.post('/app/v1/application/sex', applicationController.application_sex_post);
+router.post('/app/v1/application/dbs-consent', applicationController.application_dbs_consent_post);
+router.post('/app/v1/application/identity-types', applicationController.application_identity_types_post);
+router.post('/app/v1/application/id-verification', applicationController.application_id_verification_post);
+
+
+router.post('/app/v1/application/pay', applicationController.application_pay_post);
 
 
 module.exports = router

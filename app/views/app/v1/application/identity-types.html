@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-Where do you live?
+What identity documents do you have?
 {% endblock %}
 
 {% block heroClass %}
@@ -33,40 +33,56 @@ Where do you live?
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
+       
 
- 
         <form method="POST">
+
             <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
+                <fieldset class="govuk-fieldset" aria-describedby="dbsid-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
                         <h1 class="govuk-fieldset__heading">
-                            Where do you live?
+                            What identity documents do you have?
                         </h1>
+
                     </legend>
-                    <div class="govuk-radios" data-module="govuk-radios">
-                        <div class="govuk-radios__item">
-                            <input type="radio" class="govuk-radios__input " name="AddressLocality"
-                                id="AddressLocality-0" value="United Kingdom" {{ checked('AddressLocality','United Kingdom')}}>
-                            <label class="govuk-label govuk-radios__label" for="AddressLocality-0">
-                                United Kingdom
+
+                    <span id="dbsid-hint" class="govuk-hint">
+                        Select all that apply.
+                    </span>
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="dbsid-1" name="dbsid" type="checkbox"
+                                value="iddrivers" {{checked('dbsid','iddrivers') }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="dbsid-1">
+                                UK Driving licence
                             </label>
-                            <span id="AddressLocality-0-hint" class="govuk-hint govuk-radios__hint">
-                                Including Channel Islands and the Isle of Man
-                            </span>
                         </div>
-                        <div class="govuk-radios__item">
-                            <input type="radio" class="govuk-radios__input " name="AddressLocality"
-                                id="AddressLocality-1" value="Somewhere else" {{ checked('AddressLocality','Somewhere else')}}>
-                            <label class="govuk-label govuk-radios__label" for="AddressLocality-1">
-                                Somewhere else
+
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="dbsid-3" name="dbsid" type="checkbox"
+                                value="idni" {{checked('dbsid','idni') }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="dbsid-3">
+                                UK National insurance number
+                            </label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="dbsid-2" name="dbsid" type="checkbox"
+                                value="idpassport" {{checked('dbsid','idpassport') }}>
+                            <label class="govuk-label govuk-checkboxes__label" for="dbsid-2">
+                                Passport
                             </label>
                         </div>
                     </div>
-            </div>
+                </fieldset>
+            </div> 
 
-            <button class="govuk-button" data-module="govuk-button">
-                Save and continue
-            </button>
+         
+                <button type="submit" class="govuk-button">
+                    Save and continue
+                </button>
+           
+
         </form>
     </div>
 </div>
