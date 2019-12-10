@@ -1,6 +1,6 @@
 {% extends "layout-app-anon.html" %}
 
-{% block pageTitle %}Sign in to Apply for a licence
+{% block pageTitle %}Sign in to apply for a personal licence
 {% endblock %}
 
 {% block heroClass %}
@@ -13,7 +13,7 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Sign in to Apply for a licence</h1>
+        <h1 class="govuk-heading-l">Sign in to apply for a personal licence</h1>
 
 
         <form method="POST">
@@ -31,15 +31,15 @@
                 <input class="govuk-input govuk-!-width-two-thirds" id="password" name="password" type="password">
             </div>
 
-            <p class="govuk-body">
-                <a class="govuk-link" href="/app/v1/security/create-account">Create an account</a>
-            </p>
+         
 
             <button class="govuk-button" data-module="govuk-button" type="submit">
                 Sign in
             </button>
         </form>
-
+   <p class="govuk-body">
+                <a class="govuk-link" href="/app/v1/security/create-account">Create an account</a>
+            </p>
         <h2 class="govuk-heading-m">Problems signing in</h2>
 
         <p class="govuk-body"> <a class="govuk-link" href="/app/v1/security/forgot-password">

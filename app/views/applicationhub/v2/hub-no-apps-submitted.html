@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-Notifications
+Submitted applications
 {% endblock %}
 
 {% block heroClass %}
@@ -26,25 +26,20 @@ Notifications
 
         <nav class="gc-vertical-nav">
             <ul class="gc-vertical-nav__section">
-                <li class="gc-vertical-nav__section-item gc-vertical-nav__section-item--current">
-                    <span class="gc-vertical-nav--count">0</span>
-                    <a class="gc-vertical-nav__link " href="/applicationhub/v2/notifications">Notifications</a>
-                </li>
+                    <li class="gc-vertical-nav__section-item">
+                            <span class="gc-vertical-nav--count gc-vertical-nav--count--notification">1</span>
+                            <a class="gc-vertical-nav__link " href="/applicationhub/v2/notifications">Notifications</a>
+                        </li>
+                        <li class="gc-vertical-nav__section-item">
+                            <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+                        </li>
                 <li class="gc-vertical-nav__section-item">
-                    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
-                </li>
-                <li class="gc-vertical-nav__section-item ">
                     <span class="gc-vertical-nav--count">2</span>
                     <a class="gc-vertical-nav__link " href="/applicationhub/v2/hub-with-apps">In progress</a>
                 </li>
-                <li class="gc-vertical-nav__section-item ">
-                    <span class="gc-vertical-nav--count">2</span>
-                    <a class="gc-vertical-nav__link " href="/applicationhub/v2/hub-with-apps-submitted">Submitted</a>
-                </li>
-                <li class="gc-vertical-nav__section-item ">
+                <li class="gc-vertical-nav__section-item   gc-vertical-nav__section-item--current">
                     <span class="gc-vertical-nav--count">0</span>
-                    <a class="gc-vertical-nav__link "
-                        href="/applicationhub/v2/hub-with-apps-contributor">Contributor</a>
+                    <a class="gc-vertical-nav__link " href="/applicationhub/v2/hub-no-apps-submitted">Submitted</a>
                 </li>
             </ul>
         </nav>
@@ -52,15 +47,11 @@ Notifications
 
 
     <div class="govuk-grid-column-three-quarters">
-
-        <h1 class="govuk-heading-l">Notifications</h1>
-
-      
-<p class="govuk-body">You don't have any notifications.</p>
-      
-
-
    
+       
+            <h1 class="govuk-heading-l">Submitted applications</h1>
+
+            <p class="govuk-body">You don't have any submitted applications.</p>
 
     </div>
 

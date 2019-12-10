@@ -1,6 +1,7 @@
-{% extends "layout-app-authenticated-v2.html" %}
+{% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
+Submitted applications
 {% endblock %}
 
 {% block heroClass %}
@@ -33,16 +34,12 @@
                             <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
                         </li>
                 <li class="gc-vertical-nav__section-item">
-                    <span class="gc-vertical-nav--count">2</span>
+                    <span class="gc-vertical-nav--count">1</span>
                     <a class="gc-vertical-nav__link " href="/applicationhub/v2/hub-with-apps">In progress</a>
                 </li>
                 <li class="gc-vertical-nav__section-item   gc-vertical-nav__section-item--current">
-                    <span class="gc-vertical-nav--count">2</span>
+                    <span class="gc-vertical-nav--count">1</span>
                     <a class="gc-vertical-nav__link " href="/applicationhub/v2/hub-with-apps-submitted">Submitted</a>
-                </li>
-                <li class="gc-vertical-nav__section-item ">
-                    <span class="gc-vertical-nav--count">0</span>
-                    <a class="gc-vertical-nav__link " href="/applicationhub/v2/hub-with-apps-contributor">Contributor</a>
                 </li>
             </ul>
         </nav>

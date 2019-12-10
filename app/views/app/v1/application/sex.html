@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-What is your full name?
+What is your sex?
 {% endblock %}
 
 {% block heroClass %}
@@ -33,33 +33,32 @@ What is your full name?
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">What is your full name?</h1>
-        <p class="govuk-body">Your name appears on your licence and also the public register of licence holders.</p>
+
         <form method="POST">
             <div class="govuk-form-group">
-                <label class="govuk-label" for="first-name">
-                    First name
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="first-name" name="first-name"
-                    value="{{data['first-name']}}" type="text">
-            </div>
+                <fieldset class="govuk-fieldset" aria-describedby="sex-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            What is your sex?
+                        </h1>
+                    </legend>
 
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="middle-name">
-                    Middle name(s)
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="middle-name" name="middle-name"
-                    value="{{data['middle-name']}}" type="text">
+                    <div class="govuk-radios govuk-radios--inline">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="sex" name="sex" type="radio" value="female" {{checked('sex','female')}}>
+                            <label class="govuk-label govuk-radios__label" for="sex">
+                                Female
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="sex-2" name="sex" type="radio" value="male" {{checked('sex','male')}}>
+                            <label class="govuk-label govuk-radios__label" for="sex-2" >
+                                Male
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
             </div>
-
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="last-name">
-                    Last name
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="last-name" name="last-name"
-                    value="{{data['last-name']}}" type="text">
-            </div>
-
             <button class="govuk-button" data-module="govuk-button">
                 Save and continue
             </button>

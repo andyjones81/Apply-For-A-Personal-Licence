@@ -7,10 +7,10 @@ module.exports = {
   serviceName: 'Prototype Kit',
 
   // Default port that prototype runs on
-  port: '3099',
+  port: '3137',
 
   // Enable or disable password protection on production
-  useAuth: 'false',
+  useAuth: 'true',
 
   // Automatically stores form data, and send to all views
   useAutoStoreData: 'true',

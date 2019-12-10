@@ -1,25 +1,14 @@
-{% extends "layout-app-authenticated-v2.html" %}
+{% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
+Start a new application
 {% endblock %}
 
 {% block heroClass %}
 {% endblock %}
 
-{% block heroContent %}
-<div class=" govuk-width-container">
-    <div class="navigation-service">
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                    <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
-                    <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
-            </div>
-            <div class="govuk-grid-column-one-third">
-                    <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a href="#">Application tasks</a></p>
-            </div>
-        </div>
-    </div>
-</div>
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -28,11 +17,14 @@
 
     <div class="govuk-grid-column-two-thirds">
 
+        <h1 class="govuk-heading-l">Start page</h1>
+        
+        <p class="govuk-body">Not yet designed</p>
+
+       <a href="/app/v1/application/name" class="govuk-button">Jump to Name</a>
+      
     </div>
-
 </div>
-
-
 
 {% endblock %}
 

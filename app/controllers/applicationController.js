@@ -1,93 +1,144 @@
-var NotifyClient = require('notifications-node-client').NotifyClient,
-    notify = new NotifyClient(process.env.NotifyKey);
+// GETS *********************************************************************************
 
-exports.security_signin_get = function (req, res) {
-    res.render('app/v1/security/signin', {});
+exports.application_start_get = function (req, res) {
+    res.render('app/v1/application/start', {});
 }
 
-exports.security_signin_post = function (req, res) {
-    res.redirect('/applicationhub/v2/hub-no-apps');
+exports.application_sector_get = function (req, res) {
+    res.render('app/v1/application/sector', {});
 }
 
-
-
-exports.security_createaccount_get = function (req, res) {
-    res.render('app/v1/security/create-account', {});
+exports.application_roles_get = function (req, res) {
+    res.render('app/v1/application/roles', {});
 }
 
-exports.security_createaccount_post = function (req, res) {
-
-    //Send a code
-    notify
-        .sendEmail('a5a89337-ef7d-4aa6-809d-183d308aa130', req.session.data['email'], {
-            personalisation: {
-                'code': '898121'
-            }
-        })
-        .then(response => console.log("Sent"))
-        .catch(err => console.error("errored"))
-
-    res.redirect('/app/v1/security/code');
+exports.application_equity_get = function (req, res) {
+    res.render('app/v1/application/equity', {});
 }
 
-
-
-exports.security_code_get = function (req, res) {
-    res.render('app/v1/security/code', {});
+exports.application_name_get = function (req, res) {
+    res.render('app/v1/application/name', {});
 }
 
-exports.security_code_post = function (req, res) {
-    if (req.session.data['code'] === "") {
-        return res.redirect('/app/v1/security/failed-to-register');
+exports.application_dob_get = function (req, res) {
+    res.render('app/v1/application/date-of-birth', {});
+}
+
+exports.application_placeofbirth_get = function (req, res) {
+    res.render('app/v1/application/place-of-birth', {});
+}
+
+exports.application_homeaddress_get = function (req, res) {
+    res.render('app/v1/application/home-address', {});
+}
+
+exports.application_postcode_get = function (req, res) {
+    res.render('app/v1/application/postcode', {});
+}
+
+exports.application_addressresults_get = function (req, res) {
+    res.render('app/v1/application/address-results', {});
+}
+
+exports.application_correspondenceaddress_get = function (req, res) {
+    res.render('app/v1/application/correspondence-address', {});
+}
+
+exports.application_homeoverseas_get = function (req, res) {
+    res.render('app/v1/application/home-overseas', {});
+}
+
+exports.application_fulladdress_get = function (req, res) {
+
+      res.render('app/v1/application/full-address', {});
+}
+
+exports.application_sex_get = function (req, res) {
+
+    res.render('app/v1/application/sex', {});
+}
+
+// POSTS *********************************************************************************
+
+exports.application_start_post = function (req, res) {
+    res.redirect('/app/v1/application/sector');
+}
+
+exports.application_sector_post = function (req, res) {
+    res.redirect('/app/v1/application/roles');
+}
+
+exports.application_roles_post = function (req, res) {
+    res.redirect('/app/v1/application/equity');
+}
+
+exports.application_equity_post = function (req, res) {
+    res.redirect('/app/v1/application/name');
+}
+
+exports.application_name_post = function (req, res) {
+    res.redirect('/app/v1/application/date-of-birth');
+}
+
+exports.application_dob_post = function (req, res) {
+    res.redirect('/app/v1/application/place-of-birth');
+}
+
+exports.application_placeofbirth_post = function (req, res) {
+    res.redirect('/app/v1/application/home-address');
+}
+
+exports.application_homeaddress_post = function (req, res) {
+
+    var location = req.session.data['AddressLocality'];
+
+    if(location === 'Somewhere else')
+    {
+        return res.redirect('/app/v1/application/home-overseas');
     }
-    res.redirect('/app/v1/account/name-password');
+
+    return res.redirect('/app/v1/application/postcode');
 }
 
-
-exports.security_forgotpassword_get = function (req, res) {
-    res.render('app/v1/security/forgot-password', {});
+exports.application_postcode_post = function (req, res) {
+    res.redirect('/app/v1/application/address-results');
 }
 
-exports.security_forgotpassword_post = function (req, res) {
-    if (req.session.data['email'] === "") {
-        return res.render('app/v1/security/forgot-password', {});
+exports.application_addressresults_post = function (req, res) {
+
+    var location = req.session.data['addressresult'];
+
+    if(location !== 'notlisted')
+    {
+        req.session.data['f-address1'] = '15 River Street';
+        req.session.data['f-city'] = 'Manchester';
+        req.session.data['f-postcode'] = 'M12 3AB';
+        req.session.data['f-country'] = 'United Kingdom';
+    }
+    else{
+        req.session.data['f-address1'] = '';
+        req.session.data['f-city'] = '';
+        req.session.data['f-postcode'] = '';
+        req.session.data['f-country'] = '';
     }
 
-    notify
-        .sendEmail('d6548e32-6337-426f-abc9-1e81e4555453', req.session.data['email'], {
-            personalisation: {
-                'url': process.env.domain + 'app/v1/security/set-password'
-            }
-        })
-        .then(response => console.log("Sent"))
-        .catch(err => console.error("errored"))
 
-    res.redirect('/app/v1/security/reset-sent');
+    res.redirect('/app/v1/application/full-address');
+}
+
+exports.application_correspondenceaddress_post = function (req, res) {
+    res.redirect('/app/v1/application/correspondence-address');
+}
+
+exports.application_homeoverseas_post = function (req, res) {
+    res.redirect('/app/v1/application/home-overseas');
 }
 
 
-
-exports.account_namepassword_get = function (req, res) {
-    res.render('app/v1/account/name-password', {});
+exports.application_fulladdress_post = function (req, res) {
+    res.redirect('/app/v1/application/home-overseas');
 }
 
-exports.account_namepassword_post = function (req, res) {
-    res.redirect('/applicationhub/v2/hub-no-apps');
-}
-
-
-exports.security_setpassword_get = function (req, res) {
-    res.render('app/v1/security/set-password', {});
-}
-
-exports.security_setpassword_post = function (req, res) {
-
-    notify
-        .sendEmail('9da04c11-653c-4fd5-87ab-5c21aca39875', req.session.data['email'], {
-            personalisation: {            }
-        })
-        .then(response => console.log("Sent"))
-        .catch(err => console.error("errored"))
-
-    res.redirect('/applicationhub/v2/hub-no-apps');
+exports.application_sex_post = function (req, res) {
+    res.redirect('/app/v1/application/sex');
 }

@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-What is your full name?
+What is your home address?
 {% endblock %}
 
 {% block heroClass %}
@@ -33,31 +33,35 @@ What is your full name?
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">What is your full name?</h1>
-        <p class="govuk-body">Your name appears on your licence and also the public register of licence holders.</p>
+
+ 
         <form method="POST">
             <div class="govuk-form-group">
-                <label class="govuk-label" for="first-name">
-                    First name
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="first-name" name="first-name"
-                    value="{{data['first-name']}}" type="text">
-            </div>
-
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="middle-name">
-                    Middle name(s)
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="middle-name" name="middle-name"
-                    value="{{data['middle-name']}}" type="text">
-            </div>
-
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="last-name">
-                    Last name
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="last-name" name="last-name"
-                    value="{{data['last-name']}}" type="text">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                        <h1 class="govuk-fieldset__heading">
+                            Where do you live?
+                        </h1>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input type="radio" class="govuk-radios__input " name="AddressLocality"
+                                id="AddressLocality-0" value="United Kingdom">
+                            <label class="govuk-label govuk-radios__label" for="AddressLocality-0">
+                                United Kingdom
+                            </label>
+                            <span id="AddressLocality-0-hint" class="govuk-hint govuk-radios__hint">
+                                Including Channel Islands and the Isle of Man
+                            </span>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input type="radio" class="govuk-radios__input " name="AddressLocality"
+                                id="AddressLocality-1" value="Somewhere else" checked="">
+                            <label class="govuk-label govuk-radios__label" for="AddressLocality-1">
+                                Somewhere else
+                            </label>
+                        </div>
+                    </div>
             </div>
 
             <button class="govuk-button" data-module="govuk-button">

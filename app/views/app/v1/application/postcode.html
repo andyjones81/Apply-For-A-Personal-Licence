@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-What is your full name?
+What is your home address?
 {% endblock %}
 
 {% block heroClass %}
@@ -33,37 +33,27 @@ What is your full name?
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">What is your full name?</h1>
-        <p class="govuk-body">Your name appears on your licence and also the public register of licence holders.</p>
+
+        <h1 class="govuk-heading-l">
+            What is your postcode?
+        </h1>
         <form method="POST">
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="first-name">
-                    First name
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="first-name" name="first-name"
-                    value="{{data['first-name']}}" type="text">
-            </div>
 
             <div class="govuk-form-group">
-                <label class="govuk-label" for="middle-name">
-                    Middle name(s)
+                <label class="govuk-label" for="address-postcode">
+                    Postcode
                 </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="middle-name" name="middle-name"
-                    value="{{data['middle-name']}}" type="text">
-            </div>
-
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="last-name">
-                    Last name
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="last-name" name="last-name"
-                    value="{{data['last-name']}}" type="text">
+                <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode"
+                    type="text">
             </div>
 
             <button class="govuk-button" data-module="govuk-button">
-                Save and continue
+                Find address
             </button>
         </form>
+
+
+
     </div>
 </div>
 

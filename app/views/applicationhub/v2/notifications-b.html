@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
-{% block pageTitle %}Notifications
-No
+{% block pageTitle %}
+Notifications
 {% endblock %}
 
 {% block heroClass %}
@@ -12,7 +12,7 @@ No
     <div class="navigation-service">
         <div class="navigation-service-name">Application hub</div>
         <div class="navigation-service-switch">
-            <a href="/app/v1/application/start" class="govuk-button" role="button">New application</a>
+            <a href="#" class="govuk-button" role="button">New application</a>
         </div>
     </div>
 </div>
@@ -51,15 +51,29 @@ No
 
             {% include "_review.html" %}        
 
+
         <h1 class="govuk-heading-l">Notifications</h1>
 
-        <div class="gc-notification gc-notification--info">
-            <h1 class="govuk-heading-m govuk-!-margin-bottom-2">Privacy policy updated</h1>
-            <p class="govuk-body-s">19 October 2019 at 4:35pm</p>
-            <p class="govuk-body">Review the new privacy policy.</p>
-            <p class="govuk-!-margin-bottom-3">
-                <a href="/appsubmission/v1/progress-with-docs" class="govuk-button govuk-!-margin-bottom-0">Action</a></p>
-        </div>
+        <p class="govuk-body">Read notifications are archived after 6 months.</p>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Subject</th>
+                <th scope="col" class="govuk-table__header">Received</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"><a href="/applicationhub/v2/notitifcation/detail">Privacy policy updated</a></th>
+                <td class="govuk-table__cell">{{today | date('DD MMMM YYYY')}}</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell"><a href="/applicationhub/v2/notitifcation/detail">Password updated</a></td>
+                <td class="govuk-table__cell">{{today | date('DD MMMM YYYY')}}</td>
+              </tr>
+            </tbody>
+          </table>
 
     </div>
 

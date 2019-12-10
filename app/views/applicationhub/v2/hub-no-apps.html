@@ -1,6 +1,7 @@
-{% extends "layout-app-authenticated-v2.html" %}
+{% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
+In progress applications
 {% endblock %}
 
 {% block heroClass %}
@@ -10,7 +11,7 @@
 <div class=" govuk-width-container">
     <div class="navigation-service"> <div class="navigation-service-name">Application hub</div>
         <div class="navigation-service-switch">
-            <a href="#" class="govuk-button" role="button">New application</a>
+            <a href="/app/v1/application/start" class="govuk-button" role="button">New application</a>
         </div>
     </div>
 </div>
@@ -56,7 +57,7 @@
             <h1 class="govuk-heading-l">In progress applications</h1>
 
             <p class="govuk-body">You don't have any in-progress applications.</p>
-            <p class="govuk-body">You can start a <a href="">new application</a>.</p>
+            <p class="govuk-body">You can start a <a href="/app/v1/application/start">new application</a>.</p>
 
 
     </div>
