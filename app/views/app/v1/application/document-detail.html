@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-What is your sex?
+{{ document-name}}
 {% endblock %}
 
 {% block heroClass %}
@@ -31,37 +31,26 @@ What is your sex?
 {% block content %}
 <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-l">Letter of good standing from overseas bank</h1>
+            <h1 class="govuk-heading-l">{{ document-name}}</h1>
     
             <h2 class="govuk-heading-m">Why we need this</h2>
-            <p class="govuk-body">We use this to assess your suitability to hold a licence. This includes assessing individuals against Anti-Money Laundering regulations or identifying financial problems which may put licensing objectives at risk. </p>
+            <p class="govuk-body">{{document-reason}}</p>
     
             <h2 class="govuk-heading-m">English translation</h2>
             <p class="govuk-body">If your document is not in English, you will also need to upload a copy which has been translated into English and certified by an official such as a solicitor.
             </p>
     
-            <h2 class="govuk-heading-m">Uploaded documents</h2>
+            <div class="govuk-inset-text">
+                <p class="govuk-body">No documents have been uploaded.</p>  
+                
+                <p class="govuk-body"><a href="/app/v1/application/document-upload">Upload files</a></p>
+
+            </div>
     
-            <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        <a href="">document.pdf</a>
-                      </dt>
-                     
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="/documents/v2/manage">
-                          Remove<span class="govuk-visually-hidden">document.pdf</span>
-                        </a>
-                      </dd>
-                    </div>                            
-                   
-                  </dl>
+
+                <p class="govuk-body"><a href="/app/v1/application/document-cant-provide">I can't provide this file</a></p>
+                
     
-                  <p class="govuk-body govuk-!-margin-bottom-7"><a href="/documents/v2/upload">Add additional files</a></p>
-    
-            <a class="govuk-button" data-module="govuk-button" href="/documents/v2/index-with-files">
-                Return to documents list
-            </a>
     
         </div>
     </div>
