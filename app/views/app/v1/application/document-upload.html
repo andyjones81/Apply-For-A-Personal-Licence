@@ -1,0 +1,91 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+What is your sex?
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+<div class=" govuk-width-container">
+    <div class="navigation-service">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
+                <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
+                        href="/app/v1/application/tasks">Application tasks</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-l">Upload letter of good standing from overseas bank</h1>
+    
+            <h2 class="govuk-heading-m">What you can upload</h2>
+            <p class="govuk-body">You can upload a file, a scan or photo of this document.</p>
+            <p class="govuk-body">The file must be:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>clear and easy to read</li>
+                <li>be an image or document format, for example: jpg, docx or pdf</li>
+                <li>less than 10mb in size</li>
+            </ul>
+            <form>
+           
+                    <h2 class="govuk-heading-m">File upload</h2>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="file-upload-1">
+                        Choose your file
+                    </label>
+                    <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+                </div>
+                <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label" for="with-hint">
+                            Comments (Optional)
+                          </label>
+                          <span id="with-hint-hint" class="govuk-hint">
+                            You can provide some comments to support the file you are uploading
+                          </span>
+                          <textarea class="govuk-textarea govuk-js-character-count " id="with-hint" name="with-hint" rows="3" aria-describedby="with-hint-info with-hint-hint"></textarea>
+                        </div>
+                      
+                        <span id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                          You can enter up to 200 characters
+                        </span>
+                      </div>
+      
+    
+            </form>    
+            <a class="govuk-button" data-module="govuk-button" href="list.html">
+                Upload and continue
+            </a>
+    
+        </div>
+    </div>
+    
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}
