@@ -1,0 +1,153 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+What is your sex?
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+<div class=" govuk-width-container">
+    <div class="navigation-service">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
+                <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
+                        href="/app/v1/application/tasks">Application tasks</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <form class="form" method="post">
+
+
+            <h1 class="govuk-heading-l">
+
+                Application declaration
+            </h1>
+
+            <p class="govuk-body">
+                "You or I" means the applicant
+                <br /> "We or us" means the Gambling Commission
+            </p>
+
+            <p class="govuk-body">
+                You must tell us:
+            </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>if anything in the application changes after submission</li>
+                <li>if you become aware of any errors in your application</li>
+                <li>if you are subject to any investigatory or regulatory action in another country</li>
+            </ul>
+
+
+
+            <p class="govuk-body">
+                If you do not tell us about any of the above, we may review and revoke your licence.
+            </p>
+
+            <p class="govuk-body">
+                We are a data controller under the terms of the General Data Protection Regulation (‘GDPR’) and the Data
+                Protection Act 2018. The information you provide may be processed by us to meet our legal obligations
+                and
+                carry out our functions. You can find our policy on the GDPR and further information on <a
+                    href="http://www.gamblingcommission.gov.uk/Footer/Privacy-and-cookies.aspx" target="_Blank">
+                    how we process data</a> (opens in a new window) on our website
+                .
+            </p>
+
+            <p class="govuk-body">
+                Any information or material sent to us may be subject to the Freedom of Information Act 2000. We will
+                treat
+                all information as confidential and will only disclose information to third parties where it is
+                necessary
+                to do so. Our policy on <a href="http://www.gamblingcommission.gov.uk/Footer/Privacy-and-cookies.aspx"
+                    target="_Blank">release of information is available</a> (opens in a new window) on our website.
+            </p>
+
+
+            <h2 class="govuk-heading-m">
+                What you are declaring:
+            </h2>
+            <p class="govuk-body">
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>
+                        I confirm to the best of my knowledge, that the information provided in this application is
+                        accurate
+                    </li>
+                    <li>I confirm that all documentation provided is either the original or a true copy</li>
+                    <li>
+                        I agree to notify the Gambling Commission should any of the information given in this
+                        application
+                        change or be found incorrect
+                    </li>
+                    <li>
+                        I understand that if I receive a personal licence, information about that licence will be placed
+                        on
+                        a public register
+                    </li>
+                </ul>
+            </p>
+
+
+
+            <div class="govuk-form-group ">
+                <fieldset class="govuk-fieldset" aria-describedby="Confirmation-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        Declaration
+                    </legend>
+                    <span class="field-validation-valid govuk-error-message" data-valmsg-for="Confirmation"
+                        data-valmsg-replace="true"></span>
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input type="checkbox" class="govuk-checkboxes__input " name="Confirmation"
+                                id="Confirmation-0" value="I confirm I have read and understand this declaration.">
+                            <label class="govuk-label govuk-checkboxes__label" for="Confirmation-0">
+                                I confirm I have read and understand this declaration.
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+
+            <div class="govuk-form-group">
+                <input class="govuk-button" type="submit" value="Save and continue" name="submitAction">
+            </div>
+            <input name="PFL.Antiforgery" type="hidden"
+                value="jxS3wlsU5YVOtOu8mYEY2Wj8gp0U5fzXabY00Tqf39dcw5VRaGygvqoYVCU7t00R" />
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}

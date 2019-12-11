@@ -1,0 +1,120 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+What is your sex?
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+<div class=" govuk-width-container">
+    <div class="navigation-service">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
+                <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
+                        href="/app/v1/application/tasks">Application tasks</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <form class="form" method="post">
+
+                <h1 class="govuk-heading-l">
+                        Permission to request information from third parties
+                    </h1>
+                    <p class="govuk-body">
+                        "You or I" means the applicant
+                        <br /> "We or us" means the Gambling Commission
+                    </p>
+                    <p class="govuk-body">
+                        We may ask third parties for confirmation or further details in relation to any information you have
+                        provided in this application.
+                    </p>
+                    <p class="govuk-body">Further information on the information we seek can be found under the ‘Licensing’
+                        section of our <a href="https://www.gamblingcommission.gov.uk/news-action-and-statistics/Consultations/Closed-consultations-with-response/Changes-to-our-enforcement-strategy.aspx" target="_Blank">Licensing, compliance and enforcement policy statement</a>.</p>
+                    <p class="govuk-body">
+                        These third parties may be domestic or foreign:
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>government departments and agencies</li>
+                            <li>employers</li>
+                            <li>educational institutions</li>
+                            <li>courts</li>
+                            <li>banks</li>
+                            <li>financial institutions</li>
+                            <li>and any other third party that may hold relevant information.</li>
+                        </ul>
+                    </p>
+                    <p class="govuk-body">
+                        We may share data with third parties who fulfil a service on behalf of, and under the express
+                        instructions of, the Gambling Commission.
+                    </p>
+                    <p class="govuk-body">This data may also be shared with other bodies where it is necessary to carry out our
+                        functions and where we are legally required or permitted to do so. </p>
+        
+                    <h2 class="govuk-heading-m">Your consent to third party checks</h2>
+                    <p class="govuk-body">
+                        We need your consent to carry out checks with third parties for you to:
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>hold a licence</li>
+                            <li>continue to hold a licence if it is granted</li>
+                        </ul>
+                    </p>
+        
+        
+                    <div class="govuk-form-group ">
+                        <fieldset class="govuk-fieldset" aria-describedby="Confirmation-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                Confirmation
+                            </legend>
+                            <span class="field-validation-valid govuk-error-message" data-valmsg-for="Confirmation"
+                                data-valmsg-replace="true"></span>
+                            <div class="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                    <input type="checkbox" class="govuk-checkboxes__input " name="Confirmation" id="Confirmation-0"
+                                        value="I give my consent for you to request and share information with relevant third parties, to consider my suitability to hold a licence.">
+                                    <label class="govuk-label govuk-checkboxes__label" for="Confirmation-0">
+                                        I give my consent for you to request and share information with relevant third parties,
+                                        to consider my suitability to hold a licence.
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+        
+                    <div class="govuk-form-group">
+                        <input class="govuk-button" type="submit" value="Save and continue">
+                    </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}

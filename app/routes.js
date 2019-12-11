@@ -78,6 +78,7 @@ router.get('/app/v1/application/remove-assets-liabilities/:id', applicationContr
 router.get('/app/v1/application/net-worth', applicationController.application_networth_get);
 
 // Posts
+router.post('/app/v1/application/start', applicationController.application_start_post);
 router.post('/app/v1/application/sector', applicationController.application_sector_post);
 router.post('/app/v1/application/roles', applicationController.application_roles_post);
 router.post('/app/v1/application/equity', applicationController.application_equity_post);
@@ -93,15 +94,29 @@ router.post('/app/v1/application/full-address', applicationController.applicatio
 router.post('/app/v1/application/sex', applicationController.application_sex_post);
 router.post('/app/v1/application/dbs-consent', applicationController.application_dbs_consent_post);
 router.post('/app/v1/application/identity-types', applicationController.application_identity_types_post);
+router.post('/app/v1/application/driving-licence', applicationController.application_driving_licence_post);
+router.post('/app/v1/application/passport', applicationController.application_passport_post);
+router.post('/app/v1/application/national-insurance', applicationController.application_natins_post);
 router.post('/app/v1/application/id-verification', applicationController.application_id_verification_post);
+router.post('/app/v1/application/documents', applicationController.application_documents_post);
+router.post('/app/v1/application/third-party', applicationController.application_third_party_post);
+router.post('/app/v1/application/declaration', applicationController.application_declaration_post);
+router.post('/app/v1/application/pay', applicationController.application_pay_post);
+router.post('/app/v1/application/pay-cancelled', applicationController.application_pay_cancelled_post);
+router.post('/app/v1/application/pay-declined', applicationController.application_pay_declined_post);
+router.post('/app/v1/application/complete', applicationController.application_complete_post);
+router.post('/app/v1/application/complete-gc', applicationController.application_complete_gc_post);
+router.post('/app/v1/application/progress', applicationController.application_progress_post);
+router.post('/app/v1/application/progress-with-request', applicationController.application_progrees_with_request_post);
+router.post('/app/v1/application/additional-info', applicationController.application_additional_info_post);
 router.post('/app/v1/application/previous-names', applicationController.application_previous_names_post);
 router.post('/app/v1/application/add-previous-name', applicationController.application_add_previous_name_post);
+router.post('/app/v1/application/remove-previous-name', applicationController.application_remove_previous_name_post);
 router.post('/app/v1/application/assets-liabilities', applicationController.application_assets_liabilities_post);
 router.post('/app/v1/application/add-assets-liabilities', applicationController.application_add_assets_liabilities_post);
+router.post('/app/v1/application/remove-assets-liabilities/:id', applicationController.application_remove_assets_liabilities_post);
 router.post('/app/v1/application/net-worth', applicationController.application_networth_post);
 
-
-router.post('/app/v1/application/pay', applicationController.application_pay_post);
 
 
 module.exports = router

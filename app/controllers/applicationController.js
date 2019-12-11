@@ -375,6 +375,56 @@ exports.application_networth_post = function (req, res) {
 }
 
 
+exports.application_driving_licence_post = function (req, res) {
+    res.redirect('/app/v1/application/driving-licence');
+}
+exports.application_passport_post = function (req, res) {
+    res.redirect('/app/v1/application/passport');
+}
+exports.application_natins_post = function (req, res) {
+    res.redirect('/app/v1/application/national-insurance');
+}
+exports.application_documents_post = function (req, res) {
+    res.redirect('/app/v1/application/tasks');
+}
+exports.application_third_party_post = function (req, res) {
+    res.redirect('/app/v1/application/declaration');
+}
+exports.application_declaration_post = function (req, res) {
+    res.redirect('/app/v1/application/tasks');
+}
+exports.application_pay_cancelled_post = function (req, res) {
+    res.redirect('/app/v1/application/pay-cancelled');
+}
+exports.application_pay_declined_post = function (req, res) {
+    res.redirect('/app/v1/application/pay-declined');
+}
+exports.application_complete_post = function (req, res) {
+    res.redirect('/app/v1/application/complete');
+}
+exports.application_complete_gc_post = function (req, res) {
+    res.redirect('/app/v1/application/complete-gc');
+}
+exports.application_progress_post = function (req, res) {
+    res.redirect('/app/v1/application/progress');
+}
+exports.application_progrees_with_request_post = function (req, res) {
+    res.redirect('/app/v1/application/progress-with-request');
+}
+exports.application_additional_info_post = function (req, res) {
+    res.redirect('/app/v1/application/additional-info');
+}
+exports.application_remove_previous_name_post = function (req, res) {
+    res.redirect('/app/v1/application/remove-previous-name');
+}
+exports.application_remove_assets_liabilities_post = function (req, res) {
+    res.redirect('/app/v1/application/remove-assets-liabilities');
+}
+
+
+
+
+
 function cleanNumber(x) {
     x = Number(x);
     return x >= 0 ? Math.floor(x) : Math.ceil(x);
