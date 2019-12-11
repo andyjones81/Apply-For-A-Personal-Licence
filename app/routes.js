@@ -69,6 +69,13 @@ router.get('/app/v1/application/complete-gc', applicationController.application_
 router.get('/app/v1/application/progress', applicationController.application_progress_get);
 router.get('/app/v1/application/progress-with-request', applicationController.application_progrees_with_request_get);
 router.get('/app/v1/application/additional-info', applicationController.application_additional_info_get);
+router.get('/app/v1/application/previous-names', applicationController.application_previous_names_get);
+router.get('/app/v1/application/add-previous-name', applicationController.application_add_previous_name_get);
+router.get('/app/v1/application/remove-previous-name', applicationController.application_remove_previous_name_get);
+router.get('/app/v1/application/assets-liabilities', applicationController.application_assets_liabilities_get);
+router.get('/app/v1/application/add-assets-liabilities', applicationController.application_add_assets_liabilities_get);
+router.get('/app/v1/application/remove-assets-liabilities/:id', applicationController.application_remove_assets_liabilities_get);
+router.get('/app/v1/application/net-worth', applicationController.application_networth_get);
 
 // Posts
 router.post('/app/v1/application/sector', applicationController.application_sector_post);
@@ -87,6 +94,11 @@ router.post('/app/v1/application/sex', applicationController.application_sex_pos
 router.post('/app/v1/application/dbs-consent', applicationController.application_dbs_consent_post);
 router.post('/app/v1/application/identity-types', applicationController.application_identity_types_post);
 router.post('/app/v1/application/id-verification', applicationController.application_id_verification_post);
+router.post('/app/v1/application/previous-names', applicationController.application_previous_names_post);
+router.post('/app/v1/application/add-previous-name', applicationController.application_add_previous_name_post);
+router.post('/app/v1/application/assets-liabilities', applicationController.application_assets_liabilities_post);
+router.post('/app/v1/application/add-assets-liabilities', applicationController.application_add_assets_liabilities_post);
+router.post('/app/v1/application/net-worth', applicationController.application_networth_post);
 
 
 router.post('/app/v1/application/pay', applicationController.application_pay_post);

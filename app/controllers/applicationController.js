@@ -1,3 +1,5 @@
+const uuidv4 = require('uuid/v4');
+
 // GETS *********************************************************************************
 
 exports.application_start_get = function (req, res) {
@@ -125,7 +127,90 @@ exports.application_additional_info_get = function (req, res) {
 }
 
 
+exports.application_previous_names_get = function (req, res) {
+    res.render('app/v1/application/previous-names', {});
+}
+
+exports.application_add_previous_name_get = function (req, res) {
+    res.render('app/v1/application/add-previous-name', {});
+}
+
+exports.application_remove_previous_name_get = function (req, res) {
+    req.session.data['prev-first-name'] = "";
+    req.session.data['prev-middle-name'] = "";
+    req.session.data['prev-last-name'] = "";
+    req.session.data['previousnameadded'] = false;
+
+    res.redirect('/app/v1/application/previous-names');
+}
+
+exports.application_assets_liabilities_get = function (req, res) {
+
+    var allimit = "";
+    var totalNetWorth = cleanNumber(req.session.data['totalnetworth']);
+
+    if (req.session.data['totalnetworth'] === undefined) {
+        return res.redirect('/app/v1/application/net-worth');
+    }
+
+    if (totalNetWorth < 500000) {
+        allimit = "more than £10,000"
+    }
+
+    if (totalNetWorth >= 500000) {
+        allimit = "more than £50,000"
+    }
+
+    if (totalNetWorth >= 1000000) {
+        allimit = "more than £100,000"
+    }
+
+
+    var listOfItems = [];
+
+    if (req.session.data['assetsAndLiabilities'] !== undefined) {
+        listOfItems = req.session.data['assetsAndLiabilities'];
+    }
+
+    res.render('app/v1/application/assets-liabilities', {
+        allimit,
+        listOfItems
+    });
+}
+
+exports.application_add_assets_liabilities_get = function (req, res) {
+    res.render('app/v1/application/add-assets-liabilities', {});
+}
+
+exports.application_networth_get = function (req, res) {
+    res.render('app/v1/application/net-worth', {});
+}
+
+
+exports.application_remove_assets_liabilities_get = function (req, res) {
+
+    var id = req.params.id;
+    var listOfItems = [];
+    var listOfItems = req.session.data["assetsAndLiabilities"];
+
+    // Check the session
+    
+    var sessionObject = listOfItems.filter(function (value) {
+        return value.id !== id;
+    });
+
+    req.session.data["assetsAndLiabilities"] = sessionObject;
+
+    res.redirect('/app/v1/application/assets-liabilities');
+}
+
+
+
 // POSTS *********************************************************************************
+
+
+
+
 
 exports.application_start_post = function (req, res) {
     res.redirect('/app/v1/application/sector');
@@ -236,4 +321,61 @@ exports.application_id_verification_post = function (req, res) {
 
 exports.application_pay_post = function (req, res) {
     return res.redirect('/app/v1/application/complete');
+}
+
+
+exports.application_previous_names_post = function (req, res) {
+    res.redirect('/app/v1/application/previous-names');
+}
+
+exports.application_add_previous_name_post = function (req, res) {
+
+    req.session.data['previousnameadded'] = true;
+
+    res.redirect('/app/v1/application/previous-names');
+}
+
+exports.application_assets_liabilities_post = function (req, res) {
+    res.redirect('/app/v1/application/assets-liabilities');
+}
+
+exports.application_add_assets_liabilities_post = function (req, res) {
+
+    var assetsAndLiabilities = req.session.data["assetsAndLiabilities"];
+
+    // Check the session
+
+    var listOfItems = [];
+
+    if (req.session.data['assetsAndLiabilities'] !== undefined) {
+        listOfItems = req.session.data['assetsAndLiabilities'];
+    }
+
+    var alamount = req.body['al-amount'].replace(',', '');
+
+    listOfItems.push({
+        type: req.body['al-type'],
+        amount: cleanNumber(alamount),
+        details: req.body['al-details'],
+        id: uuidv4()
+    })
+
+    req.session.data['assetsAndLiabilities'] = listOfItems;
+
+
+    res.redirect('/app/v1/application/assets-liabilities');
+}
+
+exports.application_networth_post = function (req, res) {
+
+    var netWorth = req.body['networth'].replace(',', '');
+    req.session.data['totalnetworth'] = cleanNumber(netWorth);
+
+    res.redirect('/app/v1/application/assets-liabilities');
+}
+
+
+function cleanNumber(x) {
+    x = Number(x);
+    return x >= 0 ? Math.floor(x) : Math.ceil(x);
 }
