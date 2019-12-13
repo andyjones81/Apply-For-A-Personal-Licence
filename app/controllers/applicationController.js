@@ -90,7 +90,40 @@ exports.application_id_verification_get = function (req, res) {
 }
 
 exports.application_documents_get = function (req, res) {
-    res.render('app/v1/application/documents', {});
+
+    var docsList = require('../data/appdocs.json');
+
+    var docs = docsList.docs.filter(function (value) {
+        return (value.type === 'pml');
+    });
+
+    res.render('app/v1/application/documents', {docs});
+}
+
+exports.application_document_detail_get = function (req, res) {
+    var docsList = require('../data/appdocs.json');
+    var id = req.params.id;
+
+    var doc = docsList.docs.filter(function (value) {
+        return (value.id === id);
+    });
+
+    doc = doc[0];
+
+    res.render('app/v1/application/document-detail', { doc });
+}
+
+exports.application_document_upload_get = function (req, res) {
+    var docsList = require('../data/appdocs.json');
+    var id = req.params.id;
+
+    var doc = docsList.docs.filter(function (value) {
+        return (value.id === id);
+    });
+
+    doc = doc[0];
+
+    res.render('app/v1/application/document-upload', { doc });
 }
 
 exports.application_third_party_get = function (req, res) {
@@ -194,7 +227,7 @@ exports.application_remove_assets_liabilities_get = function (req, res) {
     var listOfItems = req.session.data["assetsAndLiabilities"];
 
     // Check the session
-    
+
     var sessionObject = listOfItems.filter(function (value) {
         return value.id !== id;
     });
@@ -351,7 +384,7 @@ exports.application_add_assets_liabilities_post = function (req, res) {
         listOfItems = req.session.data['assetsAndLiabilities'];
     }
 
-    var alamount = req.body['al-amount'].replace(',', '');
+    var alamount = req.body['al-amount'].replace(/,/g, '');;
 
     listOfItems.push({
         type: req.body['al-type'],
@@ -368,7 +401,7 @@ exports.application_add_assets_liabilities_post = function (req, res) {
 
 exports.application_networth_post = function (req, res) {
 
-    var netWorth = req.body['networth'].replace(',', '');
+    var netWorth = req.body['networth'].replace(/,/g, '');;
     req.session.data['totalnetworth'] = cleanNumber(netWorth);
 
     res.redirect('/app/v1/application/assets-liabilities');
@@ -387,6 +420,15 @@ exports.application_natins_post = function (req, res) {
 exports.application_documents_post = function (req, res) {
     res.redirect('/app/v1/application/tasks');
 }
+exports.application_document_detail_post = function (req, res) {
+    res.redirect('/app/v1/application/documents');
+}
+exports.application_document_upload_post = function (req, res) {
+
+    var docid = req.body['id'];
+    res.redirect('/app/v1/application/document-detail/'+docid);
+}
+
 exports.application_third_party_post = function (req, res) {
     res.redirect('/app/v1/application/declaration');
 }

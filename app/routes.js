@@ -59,6 +59,8 @@ router.get('/app/v1/application/passport', applicationController.application_pas
 router.get('/app/v1/application/national-insurance', applicationController.application_natins_get);
 router.get('/app/v1/application/id-verification', applicationController.application_id_verification_get);
 router.get('/app/v1/application/documents', applicationController.application_documents_get);
+router.get('/app/v1/application/document-detail/:id', applicationController.application_document_detail_get);
+router.get('/app/v1/application/document-upload/:id', applicationController.application_document_upload_get);
 router.get('/app/v1/application/third-party', applicationController.application_third_party_get);
 router.get('/app/v1/application/declaration', applicationController.application_declaration_get);
 router.get('/app/v1/application/pay', applicationController.application_pay_get);
@@ -99,6 +101,8 @@ router.post('/app/v1/application/passport', applicationController.application_pa
 router.post('/app/v1/application/national-insurance', applicationController.application_natins_post);
 router.post('/app/v1/application/id-verification', applicationController.application_id_verification_post);
 router.post('/app/v1/application/documents', applicationController.application_documents_post);
+router.post('/app/v1/application/document-detail/:id', applicationController.application_document_detail_post);
+router.post('/app/v1/application/document-upload', applicationController.application_document_upload_post);
 router.post('/app/v1/application/third-party', applicationController.application_third_party_post);
 router.post('/app/v1/application/declaration', applicationController.application_declaration_post);
 router.post('/app/v1/application/pay', applicationController.application_pay_post);

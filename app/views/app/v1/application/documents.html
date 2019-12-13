@@ -9,18 +9,18 @@ What is your sex?
 
 {% block heroContent %}
 <div class=" govuk-width-container">
-    <div class="navigation-service">
-        <div class="govuk-grid-row">
-            <div class="govuk-grid-column-two-thirds">
-                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
-                <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
-            </div>
-            <div class="govuk-grid-column-one-third">
-                <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
-                        href="/app/v1/application/tasks">Application tasks</a></p>
-            </div>
-        </div>
+  <div class="navigation-service">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
+        <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a href="/app/v1/application/tasks">Application
+            tasks</a></p>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock %}
 
@@ -30,55 +30,51 @@ What is your sex?
 
 {% block content %}
 <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-          <h1 class="govuk-heading-l">Upload documents to support your application</h1>
-      
-          <p class="govuk-body">We require copies of the following documents to be uploaded to support this application.</p>
-      
-          <p class="govuk-body">Guidance is provided on the upload page for each document type.</p>
-          <h2 class="govuk-heading-m">Documents</h2>
-      
-          <div class="gc-documents-list">
-      
-            <div class="gc-documents-list--group">
-              <div class="gc-documents-list--row">
-                <div class="gc-documents-list--doc-name">Letter of good standing from overseas bank</div>
-                <div class="gc-documents-list--doc-action"><a href="/app/v1/application/document-detail">Upload</a></div>
-              </div>
-              <div class="gc-documents-list--doc-list">
-                <div class="gc-documents-list--doc-files">No documents uploaded</div>
-              </div>
-            </div>
-      
-            <div class="gc-documents-list--group">
-              <div class="gc-documents-list--row">
-                <div class="gc-documents-list--doc-name">Credit report</div>
-                <div class="gc-documents-list--doc-action"><a href="/app/v1/application/document-detail">Upload</a></div>
-              </div>
-              <div class="gc-documents-list--doc-list">
-                <div class="gc-documents-list--doc-files">No documents uploaded</div>
-              </div>
-            </div>
-      
-          </div>
-      
-          <button class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
-      
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Upload documents to support your application</h1>
+
+    <p class="govuk-body">We require copies of the following documents to be uploaded to support this application.</p>
+
+    <p class="govuk-body">Guidance is provided on the upload page for each document type.</p>
+    <h2 class="govuk-heading-m">Documents</h2>
+
+    <div class="gc-documents-list">
+
+      {% for i in docs %}
+
+      <div class="gc-documents-list--group">
+        <div class="gc-documents-list--row">
+          <div class="gc-documents-list--doc-name">{{i.documentType}}</div>
+          <div class="gc-documents-list--doc-action"><a href="/app/v1/application/document-detail/{{i.id}}">Upload</a></div>
+        </div>
+        <div class="gc-documents-list--doc-list">
+          <div class="gc-documents-list--doc-files">No documents uploaded</div>
         </div>
       </div>
+
+      {% endfor %}
+
+
+
+    </div>
+
+    <button class="govuk-button" data-module="govuk-button" type="submit">
+      Continue
+    </button>
+
+  </div>
+</div>
 
 {% endblock %}
 
 {% block pageHelp %}
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h3 class="govuk-heading-m">What this page is for</h3>
-        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
-            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
-        <h3 class="govuk-heading-m">Known issues</h3>
-        <p class="govuk-body">There are no known issues for this page.</p>
-    </div>
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">What this page is for</h3>
+    <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+      Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+    <h3 class="govuk-heading-m">Known issues</h3>
+    <p class="govuk-body">There are no known issues for this page.</p>
+  </div>
 </div>
 {% endblock %}

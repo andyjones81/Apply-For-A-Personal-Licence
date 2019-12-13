@@ -1,0 +1,9 @@
+{
+    "docs": [{
+        "type": "pml",
+        "id": "credit-report",
+        "documentType": "Credit report",
+        "documentDescription": "We use a credit report to assess credit worthiness",
+        "order": 10
+    }]
+}
