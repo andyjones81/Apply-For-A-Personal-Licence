@@ -17,8 +17,34 @@ Apply for a personal licence prototype
     <h1 class="govuk-heading-l">Apply for a personal licence prototype</h1>
     <p class="govuk-body">This is a prototype, you can get to any page within the prototype using this page.</p>
 
-
-
+    <form method="POST">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="apptype-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              Use prototype as a:
+            </h1>
+          </legend>
+          <div class="govuk-radios govuk-radios--inline">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="apptype" name="apptype" type="radio" value="pfl" {{checked('apptype','pfl')}}>
+              <label class="govuk-label govuk-radios__label" for="apptype">
+                PFL
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="apptype-2" name="apptype" type="radio" value="pml" {{checked('apptype','pml')}}>
+              <label class="govuk-label govuk-radios__label" for="apptype-2">
+                PML
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Save preferences
+      </button>
+    </form>
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
@@ -201,8 +227,42 @@ Apply for a personal licence prototype
                 <td class="govuk-table__cell"><a href="/app/v1/application/home-overseas">Overseas address</a></td>
                 <td class="govuk-table__cell"></td>
               </tr>
-
-
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/sex">Sex</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/previous-names">Previous names</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/add-previous-name">Add previous name</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/dbs-consent">DBS Consent</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/identity-types">DBS Identity types</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/driving-licence">Driving licence</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/national-insurance">National Insurance</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/passport">Passport</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/id-verification">id-verification</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
 
 
               <tr class="govuk-table__row">
@@ -231,6 +291,48 @@ Apply for a personal licence prototype
               </tr>
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell"><a href="/app/v1/application/documents-upload">Document upload</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/third-party">Third party declaration</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/declaration">Application declaration</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pay">Pay</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pay-cancelled">Payment cancelled</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pay-declined">Payment declined</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/complete">Complete</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/complete-gc">Complete (GC ID)</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/tasks">Tasks</a></td>
                 <td class="govuk-table__cell"></td>
               </tr>
             </tbody>

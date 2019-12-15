@@ -126,6 +126,19 @@ exports.application_document_upload_get = function (req, res) {
     res.render('app/v1/application/document-upload', { doc });
 }
 
+exports.application_document_not_provided_get = function (req, res) {
+    var docsList = require('../data/appdocs.json');
+    var id = req.params.id;
+
+    var doc = docsList.docs.filter(function (value) {
+        return (value.id === id);
+    });
+
+    doc = doc[0];
+
+    res.render('app/v1/application/document-not-provided', { doc });
+}
+
 exports.application_third_party_get = function (req, res) {
     res.render('app/v1/application/third-party', {});
 }
@@ -426,6 +439,17 @@ exports.application_document_detail_post = function (req, res) {
 exports.application_document_upload_post = function (req, res) {
 
     var docid = req.body['id'];
+    res.redirect('/app/v1/application/document-detail/'+docid);
+}
+
+exports.application_document_not_provided_post = function (req, res) {
+
+    var docid = req.body['id'];
+    req.session.data['docnotprovided'] = true;
+
+    console.log(req.session.data['docnotprovided'])
+    console.log(req.session.data['reasonfornodocument'])
+
     res.redirect('/app/v1/application/document-detail/'+docid);
 }
 

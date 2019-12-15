@@ -7,6 +7,15 @@ const securityController = require('./controllers/securityController.js')
 const profileController = require('./controllers/profileController.js')
 const applicationController = require('./controllers/applicationController.js')
 
+// Preference set on the homepage
+router.post('/', function (req, res) {
+    // Set session app type
+    req.session['apptype'] = req.body['apptype'];
+    console.log(req.session['apptype'])
+
+    res.redirect('/')
+  })
+
 
 // SECURITY
 router.get('/app/v1/security/signin', securityController.security_signin_get);
@@ -61,6 +70,7 @@ router.get('/app/v1/application/id-verification', applicationController.applicat
 router.get('/app/v1/application/documents', applicationController.application_documents_get);
 router.get('/app/v1/application/document-detail/:id', applicationController.application_document_detail_get);
 router.get('/app/v1/application/document-upload/:id', applicationController.application_document_upload_get);
+router.get('/app/v1/application/document-not-provided/:id', applicationController.application_document_not_provided_get);
 router.get('/app/v1/application/third-party', applicationController.application_third_party_get);
 router.get('/app/v1/application/declaration', applicationController.application_declaration_get);
 router.get('/app/v1/application/pay', applicationController.application_pay_get);
@@ -102,7 +112,7 @@ router.post('/app/v1/application/national-insurance', applicationController.appl
 router.post('/app/v1/application/id-verification', applicationController.application_id_verification_post);
 router.post('/app/v1/application/documents', applicationController.application_documents_post);
 router.post('/app/v1/application/document-detail/:id', applicationController.application_document_detail_post);
-router.post('/app/v1/application/document-upload', applicationController.application_document_upload_post);
+router.post('/app/v1/application/document-not-provided/:id', applicationController.application_document_not_provided_post);
 router.post('/app/v1/application/third-party', applicationController.application_third_party_post);
 router.post('/app/v1/application/declaration', applicationController.application_declaration_post);
 router.post('/app/v1/application/pay', applicationController.application_pay_post);

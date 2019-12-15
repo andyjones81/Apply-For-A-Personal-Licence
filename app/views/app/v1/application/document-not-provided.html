@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-{{ document-name}}
+{{ doc.documentType}}
 {% endblock %}
 
 {% block heroClass %}
@@ -31,34 +31,34 @@
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">{{ doc.documentType}}</h1>
+        <h1 class="govuk-heading-l">I can't provide the {{ doc.documentType | lower}} document</h1>
 
-        <h2 class="govuk-heading-m">Why we need this</h2>
-        <p class="govuk-body">{{ doc.documentDescription}}</p>
+      
+        <form method="POST">
 
-        <h2 class="govuk-heading-m">English translation</h2>
-        <p class="govuk-body">If your document is not in English, you will also need to upload a copy which has been
-            translated into English and certified by an official such as a solicitor.
-        </p>
+          
+            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="reasonfornodocument">
+                       Tell us why you can't provide this document
+                    </label>
+                   
+                    <textarea class="govuk-textarea govuk-js-character-count " id="reasonfornodocument" name="reasonfornodocument" rows="3"
+                        aria-describedby="reasonfornodocument-info reasonfornodocument-hint"></textarea>
+                </div>
 
-     
+                <span id="reasonfornodocument-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                    You can enter up to 200 characters
+                </span>
+            </div>
 
-        {% if data['docnotprovided'] === true %}
+            <input type="hidden" name="id" value="{{doc.id}}">
 
-        <p class="govuk-body">You've said you can't provide this file.</p>
+            <button class="govuk-button" data-module="govuk-button" type="submit">
+                Upload and continue
+            </button>
+        </form>
 
-        <p class="govuk-body">{{ data['reasonfornodocument'] }}</p>
-        {% else %}
-
-        <div class="govuk-inset-text">
-            <p class="govuk-body">No documents have been uploaded.</p>
-            <p class="govuk-body"><a href="/app/v1/application/document-upload/{{doc.id}}">Upload files</a></p>
-        </div>
-
-        <p class="govuk-body"><a href="/app/v1/application/document-not-provided/{{doc.id}}">I can't provide this
-                file</a></p>
-
-        {% endif %}
 
     </div>
 </div>
