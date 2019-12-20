@@ -10,6 +10,8 @@ exports.application_sector_get = function (req, res) {
     res.render('app/v1/application/sector', {});
 }
 
+
+
 exports.application_roles_get = function (req, res) {
     res.render('app/v1/application/roles', {});
 }
@@ -92,17 +94,36 @@ exports.application_id_verification_get = function (req, res) {
 exports.application_documents_get = function (req, res) {
 
     var docsList = require('../data/appdocs.json');
+    req.session.data['docload'] = true;
+    var docs = docsList.docs.filter(function (value) {
+        return (value.type === 'pml');
+    });
+
+    res.render('app/v1/application/documents', {
+        docs
+    });
+}
+
+exports.application_document_remove_get = function (req, res) {
+
+    var docsList = require('../data/appdocs.json');
+    var id = req.params.id;
+
+
 
     var docs = docsList.docs.filter(function (value) {
         return (value.type === 'pml');
     });
 
-    res.render('app/v1/application/documents', {docs});
+    res.redirect('/app/v1/application/document-detail/' + id);
 }
 
 exports.application_document_detail_get = function (req, res) {
     var docsList = require('../data/appdocs.json');
+
     var id = req.params.id;
+
+    req.session.data['docload'] = true;
 
     var doc = docsList.docs.filter(function (value) {
         return (value.id === id);
@@ -110,7 +131,9 @@ exports.application_document_detail_get = function (req, res) {
 
     doc = doc[0];
 
-    res.render('app/v1/application/document-detail', { doc });
+    res.render('app/v1/application/document-detail', {
+        doc
+    });
 }
 
 exports.application_document_upload_get = function (req, res) {
@@ -123,7 +146,9 @@ exports.application_document_upload_get = function (req, res) {
 
     doc = doc[0];
 
-    res.render('app/v1/application/document-upload', { doc });
+    res.render('app/v1/application/document-upload', {
+        doc
+    });
 }
 
 exports.application_document_not_provided_get = function (req, res) {
@@ -136,7 +161,9 @@ exports.application_document_not_provided_get = function (req, res) {
 
     doc = doc[0];
 
-    res.render('app/v1/application/document-not-provided', { doc });
+    res.render('app/v1/application/document-not-provided', {
+        doc
+    });
 }
 
 exports.application_third_party_get = function (req, res) {
@@ -251,8 +278,208 @@ exports.application_remove_assets_liabilities_get = function (req, res) {
 }
 
 
+exports.application_criminality_initial_get = function (req, res) {
+    res.render('app/v1/application/criminality-initial', {});
+}
+exports.application_criminality_ongoing_get = function (req, res) {
+    res.render('app/v1/application/criminality-ongoing', {});
+}
+exports.application_criminality_action_get = function (req, res) {
+    res.render('app/v1/application/criminality-action', {});
+}
+exports.application_criminality_date_get = function (req, res) {
+    res.render('app/v1/application/criminality-date', {});
+}
+exports.application_criminality_body_get = function (req, res) {
+    res.render('app/v1/application/criminality-body', {});
+}
+exports.application_criminality_reference_get = function (req, res) {
+    res.render('app/v1/application/criminality-reference', {});
+}
+exports.application_criminality_details_get = function (req, res) {
+    res.render('app/v1/application/criminality-details', {});
+}
+exports.application_criminality_check_get = function (req, res) {
+    req.session.data['criminalityadded'] = true;
+    res.render('app/v1/application/criminality-check', {});
+}
+exports.application_criminality_list_get = function (req, res) {
+    res.render('app/v1/application/criminality-list', {});
+}
+
+exports.application_gamblinginvestigations_initial_get = function (req, res) {
+    res.render('app/v1/application/gamblinginvestigations-initial', {});
+}
+exports.application_gamblinginvestigations_ongoing_get = function (req, res) {
+    res.render('app/v1/application/gamblinginvestigations-ongoing', {});
+}
+exports.application_gamblinginvestigations_activity_get = function (req, res) {
+    res.render('app/v1/application/gamblinginvestigations-activity', {});
+}
+exports.application_gamblinginvestigations_date_get = function (req, res) {
+    res.render('app/v1/application/gamblinginvestigations-date', {});
+}
+exports.application_gamblinginvestigations_body_get = function (req, res) {
+    res.render('app/v1/application/gamblinginvestigations-body', {});
+}
+exports.application_gamblinginvestigations_reference_get = function (req, res) {
+    res.render('app/v1/application/gamblinginvestigations-reference', {});
+}
+exports.application_gamblinginvestigations_details_get = function (req, res) {
+    res.render('app/v1/application/gamblinginvestigations-details', {});
+}
+exports.application_gamblinginvestigations_check_get = function (req, res) {
+    req.session.data['gamblinginvestigationsadded'] = true;
+    res.render('app/v1/application/gamblinginvestigations-check', {});
+}
+exports.application_gamblinginvestigations_list_get = function (req, res) {
+    res.render('app/v1/application/gamblinginvestigations-list', {});
+}
+
+
+
+exports.application_gambling_training_get = function (req, res) {
+    res.render('app/v1/application/gambling-training', {});
+}
+
+exports.application_gambling_training_trainer_get = function (req, res) {
+    res.render('app/v1/application/gambling-training-trainer', {});
+}
+
+exports.application_gambling_training_date_get = function (req, res) {
+    res.render('app/v1/application/gambling-training-date', {});
+}
+
+exports.application_gambling_training_details_get = function (req, res) {
+    res.render('app/v1/application/gambling-training-details', {});
+}
+
+exports.application_gambling_training_check_get = function (req, res) {
+    res.render('app/v1/application/gambling-training-check', {});
+}
+
+exports.application_gambling_training_list_get = function (req, res) {
+    res.render('app/v1/application/gambling-training-list', {});
+}
+
+exports.application_qualifications_get = function (req, res) {
+    res.render('app/v1/application/qualifications', {});
+}
+
+exports.application_qualifications_body_get = function (req, res) {
+    res.render('app/v1/application/qualifications-body', {});
+}
+
+exports.application_qualifications_date_get = function (req, res) {
+    res.render('app/v1/application/qualifications-date', {});
+}
+
+exports.application_qualifications_details_get = function (req, res) {
+    res.render('app/v1/application/qualifications-details', {});
+}
+
+exports.application_qualifications_check_get = function (req, res) {
+    res.render('app/v1/application/qualifications-check', {});
+}
+
+exports.application_qualifications_list_get = function (req, res) {
+    res.render('app/v1/application/qualifications-list', {});
+}
+
+
+exports.application_employment_get = function (req, res) {
+    res.render('app/v1/application/employment', {});
+}
+
+exports.application_employment_type_get = function (req, res) {
+    res.render('app/v1/application/employment-type', {});
+}
+
+exports.application_employment_name_get = function (req, res) {
+    res.render('app/v1/application/employment-name', {});
+}
+
+exports.application_employment_role_get = function (req, res) {
+    res.render('app/v1/application/employment-role', {});
+}
+
+exports.application_employment_check_get = function (req, res) {
+    res.render('app/v1/application/employment-check', {});
+}
+
+exports.application_employment_list_get = function (req, res) {
+    res.render('app/v1/application/employment-list', {});
+}
+
+
+
+exports.application_licences_get = function (req, res) {
+    res.render('app/v1/application/licences', {});
+}
+exports.application_licences_type_get = function (req, res) {
+    res.render('app/v1/application/licence-type', {});
+}
+exports.application_licences_status_get = function (req, res) {
+    res.render('app/v1/application/licence-status', {});
+}
+exports.application_licences_reference_get = function (req, res) {
+    res.render('app/v1/application/licence-reference', {});
+}
+exports.application_licences_name_get = function (req, res) {
+    res.render('app/v1/application/licence-name', {});
+}
+exports.application_licences_list_get = function (req, res) {
+    res.render('app/v1/application/licence-list', {});
+}
+exports.application_licences_dates_get = function (req, res) {
+    res.render('app/v1/application/licence-dates', {});
+}
+exports.application_licences_country_get = function (req, res) {
+    res.render('app/v1/application/licence-country', {});
+}
+exports.application_licences_check_get = function (req, res) {
+    res.render('app/v1/application/licence-check', {});
+}
+exports.application_licences_body_get = function (req, res) {
+    res.render('app/v1/application/licence-body', {});
+}
+
+
+exports.financial_get = function (req, res) {
+    res.render('app/v1/application/financial', {});
+}
+exports.financial_type_get = function (req, res) {
+    res.render('app/v1/application/financial-type', {});
+}
+exports.financial_date_get = function (req, res) {
+    res.render('app/v1/application/financial-date', {});
+}
+exports.financial_body_get = function (req, res) {
+    res.render('app/v1/application/financial-body', {});
+}
+exports.financial_country_get = function (req, res) {
+    res.render('app/v1/application/financial-country', {});
+}
+exports.financial_completed_get = function (req, res) {
+    res.render('app/v1/application/financial-completed', {});
+}
+exports.financial_details_get = function (req, res) {
+    res.render('app/v1/application/financial-details', {});
+}
+exports.financial_check_get = function (req, res) {
+    res.render('app/v1/application/financial-check', {});
+}
+exports.financial_list_get = function (req, res) {
+    res.render('app/v1/application/financial-list', {});
+}
+
+
+
+
 
 // POSTS *********************************************************************************
+
+
 
 
 
@@ -261,6 +488,7 @@ exports.application_remove_assets_liabilities_get = function (req, res) {
 exports.application_start_post = function (req, res) {
     res.redirect('/app/v1/application/sector');
 }
+
 
 exports.application_sector_post = function (req, res) {
     res.redirect('/app/v1/application/roles');
@@ -331,7 +559,7 @@ exports.application_homeoverseas_post = function (req, res) {
 
 
 exports.application_fulladdress_post = function (req, res) {
-    res.redirect('/app/v1/application/home-overseas');
+    res.redirect('/app/v1/application/dbs-consent');
 }
 
 exports.application_sex_post = function (req, res) {
@@ -361,7 +589,7 @@ exports.application_identity_types_post = function (req, res) {
 }
 
 exports.application_id_verification_post = function (req, res) {
-    res.redirect('/app/v1/application/id-verification');
+    res.redirect('/app/v1/application/assets-liabilities');
 }
 
 
@@ -382,7 +610,7 @@ exports.application_add_previous_name_post = function (req, res) {
 }
 
 exports.application_assets_liabilities_post = function (req, res) {
-    res.redirect('/app/v1/application/assets-liabilities');
+    res.redirect('/app/v1/application/financial');
 }
 
 exports.application_add_assets_liabilities_post = function (req, res) {
@@ -434,23 +662,27 @@ exports.application_documents_post = function (req, res) {
     res.redirect('/app/v1/application/tasks');
 }
 exports.application_document_detail_post = function (req, res) {
+    req.session.data['docload'] = false;
     res.redirect('/app/v1/application/documents');
 }
 exports.application_document_upload_post = function (req, res) {
 
     var docid = req.body['id'];
-    res.redirect('/app/v1/application/document-detail/'+docid);
+    req.session.data['docsuploaded'] = true;
+    req.session.data['docload'] = false;
+    res.redirect('/app/v1/application/document-detail/' + docid);
 }
 
 exports.application_document_not_provided_post = function (req, res) {
 
     var docid = req.body['id'];
     req.session.data['docnotprovided'] = true;
+    req.session.data['docload'] = false;
 
     console.log(req.session.data['docnotprovided'])
     console.log(req.session.data['reasonfornodocument'])
 
-    res.redirect('/app/v1/application/document-detail/'+docid);
+    res.redirect('/app/v1/application/document-detail/' + docid);
 }
 
 exports.application_third_party_post = function (req, res) {
@@ -488,6 +720,195 @@ exports.application_remove_assets_liabilities_post = function (req, res) {
 }
 
 
+exports.application_criminality_initial_post = function (req, res) {
+    res.redirect('/app/v1/application/gamblinginvestigations-initial');
+}
+exports.application_criminality_ongoing_post = function (req, res) {
+    res.redirect('/app/v1/application/criminality-action');
+}
+exports.application_criminality_action_post = function (req, res) {
+    res.redirect('/app/v1/application/criminality-date');
+}
+exports.application_criminality_date_post = function (req, res) {
+    res.redirect('/app/v1/application/criminality-body');
+}
+exports.application_criminality_body_post = function (req, res) {
+    res.redirect('/app/v1/application/criminality-reference');
+}
+exports.application_criminality_reference_post = function (req, res) {
+    res.redirect('/app/v1/application/criminality-details');
+}
+exports.application_criminality_details_post = function (req, res) {
+    res.redirect('/app/v1/application/criminality-check');
+}
+exports.application_criminality_check_post = function (req, res) {
+    res.redirect('/app/v1/application/criminality-list');
+}
+exports.application_criminality_list_post = function (req, res) {
+    res.redirect('/app/v1/application/gamblinginvestigations-initial');
+}
+
+exports.application_gamblinginvestigations_initial_post = function (req, res) {
+    res.redirect('/app/v1/application/gambling-training');
+}
+exports.application_gamblinginvestigations_ongoing_post = function (req, res) {
+    res.redirect('/app/v1/application/gamblinginvestigations-activity');
+}
+exports.application_gamblinginvestigations_activity_post = function (req, res) {
+    res.redirect('/app/v1/application/gamblinginvestigations-date');
+}
+exports.application_gamblinginvestigations_date_post = function (req, res) {
+    res.redirect('/app/v1/application/gamblinginvestigations-body');
+}
+exports.application_gamblinginvestigations_body_post = function (req, res) {
+    res.redirect('/app/v1/application/gamblinginvestigations-reference');
+}
+exports.application_gamblinginvestigations_reference_post = function (req, res) {
+    res.redirect('/app/v1/application/gamblinginvestigations-details');
+}
+exports.application_gamblinginvestigations_details_post = function (req, res) {
+    res.redirect('/app/v1/application/gamblinginvestigations-check');
+}
+exports.application_gamblinginvestigations_check_post = function (req, res) {
+    res.redirect('/app/v1/application/gamblinginvestigations-list');
+}
+exports.application_gamblinginvestigations_list_post = function (req, res) {
+    res.redirect('/app/v1/application/gambling-training');
+}
+
+
+exports.application_gambling_training_post = function (req, res) {
+    res.redirect('/app/v1/application/employment');
+}
+
+exports.application_gambling_training_trainer_post = function (req, res) {
+    res.redirect('/app/v1/application/gambling-training-date');
+}
+
+exports.application_gambling_training_date_post = function (req, res) {
+    res.redirect('/app/v1/application/gambling-training-details');
+}
+
+exports.application_gambling_training_details_post = function (req, res) {
+    res.redirect('/app/v1/application/gambling-training-check');
+}
+
+exports.application_gambling_training_check_post = function (req, res) {
+    res.redirect('/app/v1/application/gambling-training-list');
+}
+
+exports.application_gambling_training_list_post = function (req, res) {
+    res.redirect('/app/v1/application/employment');
+}
+
+
+exports.application_qualifications_post = function (req, res) {
+    res.redirect('/app/v1/application/licences');
+}
+
+exports.application_qualifications_body_post = function (req, res) {
+    res.redirect('/app/v1/application/qualifications-date');
+}
+
+exports.application_qualifications_date_post = function (req, res) {
+    res.redirect('/app/v1/application/qualifications-details');
+}
+
+exports.application_qualifications_details_post = function (req, res) {
+    res.redirect('/app/v1/application/qualifications-check');
+}
+
+exports.application_qualifications_check_post = function (req, res) {
+    res.redirect('/app/v1/application/qualifications-list');
+}
+
+exports.application_qualifications_list_post = function (req, res) {
+    res.render('app/v1/application/licences');
+}
+
+
+exports.application_employment_post = function (req, res) {
+    res.redirect('/app/v1/application/qualifications');
+}
+
+exports.application_employment_type_post = function (req, res) {
+    res.redirect('/app/v1/application/employment-name');
+}
+
+exports.application_employment_name_post = function (req, res) {
+    res.redirect('/app/v1/application/employment-role');
+}
+
+exports.application_employment_role_post = function (req, res) {
+    res.redirect('/app/v1/application/employment-check');
+}
+
+exports.application_employment_check_post = function (req, res) {
+    res.redirect('/app/v1/application/employment-list');
+}
+
+exports.application_employment_list_post = function (req, res) {
+    res.redirect('/app/v1/application/qualifications');
+}
+
+exports.application_licences_post = function (req, res) {
+    res.redirect('/app/v1/application/associated-accounts');
+}
+exports.application_licences_status_post = function (req, res) {
+    res.redirect('/app/v1/application/licence-body');
+}
+exports.application_licences_body_post = function (req, res) {
+    res.redirect('/app/v1/application/licence-country');
+}
+exports.application_licences_country_post = function (req, res) {
+    res.redirect('/app/v1/application/licence-type');
+}
+exports.application_licences_type_post = function (req, res) {
+    res.redirect('/app/v1/application/licence-name');
+}
+exports.application_licences_name_post = function (req, res) {
+    res.redirect('/app/v1/application/licence-reference');
+}
+exports.application_licences_reference_post = function (req, res) {
+    res.redirect('/app/v1/application/licence-dates');
+}
+exports.application_licences_dates_post = function (req, res) {
+    res.redirect('/app/v1/application/licence-check');
+}
+exports.application_licences_check_post = function (req, res) {
+    res.redirect('/app/v1/application/licence-list');
+}
+exports.application_licences_list_post = function (req, res) {
+    res.redirect('/app/v1/application/associated-accounts');
+}
+
+exports.financial_post = function (req, res) {
+    res.redirect('/app/v1/application/criminality-initial');
+}
+exports.financial_type_post = function (req, res) {
+    res.redirect('/app/v1/application/financial-date');
+}
+exports.financial_date_post = function (req, res) {
+    res.redirect('/app/v1/application/financial-body');
+}
+exports.financial_body_post = function (req, res) {
+    res.redirect('/app/v1/application/financial-country');
+}
+exports.financial_country_post = function (req, res) {
+    res.redirect('/app/v1/application/financial-completed');
+}
+exports.financial_completed_post = function (req, res) {
+    res.redirect('/app/v1/application/financial-details');
+}
+exports.financial_details_post = function (req, res) {
+    res.redirect('/app/v1/application/financial-check');
+}
+exports.financial_check_post = function (req, res) {
+    res.redirect('/app/v1/application/financial-list');
+}
+exports.financial_list_post = function (req, res) {
+    res.redirect('/app/v1/application/criminality-initial');
+}
 
 
 

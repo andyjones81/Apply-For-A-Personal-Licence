@@ -48,7 +48,10 @@
         <p class="govuk-body">You've said you can't provide this file.</p>
 
         <p class="govuk-body">{{ data['reasonfornodocument'] }}</p>
-        {% else %}
+        {% endif %}
+
+
+        {% if data['docload'] === true %}   
 
         <div class="govuk-inset-text">
             <p class="govuk-body">No documents have been uploaded.</p>
@@ -58,7 +61,38 @@
         <p class="govuk-body"><a href="/app/v1/application/document-not-provided/{{doc.id}}">I can't provide this
                 file</a></p>
 
+
         {% endif %}
+
+
+
+        {% if data['docsuploaded'] === true and data['docnotprovided'] !== true %}
+
+        <h2 class="govuk-heading-m">Uploaded documents</h2>
+
+        <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    <a href="">document.pdf</a>
+                  </dt>
+                 
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link" href="/app/v1/application/document-remove/{{doc.id}}">
+                      Remove<span class="govuk-visually-hidden">document.pdf</span>
+                    </a>
+                  </dd>
+                </div>                            
+               
+              </dl>
+
+              <p class="govuk-body govuk-!-margin-bottom-7"><a href="/app/v1/application/document-upload/{{doc.id}}">Add additional files</a></p>
+
+        <a class="govuk-button" data-module="govuk-button" href="/app/v1/application/documents">
+            Return to documents list
+        </a>
+       
+        {% endif %}
+
 
     </div>
 </div>

@@ -1,0 +1,176 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+Is the action completed?
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+<div class=" govuk-width-container">
+    <div class="navigation-service">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
+                <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
+                        href="/app/v1/application/tasks">Application
+                        tasks</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <form method="POST">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="financial-conditional-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+                        <span class="govuk-caption-l">Question 5 of 6</span>
+                        <h1 class="govuk-fieldset__heading">
+                            Is the action completed?
+                        </h1>
+                    </legend>
+
+                    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="financial-conditional" name="financial" type="radio"
+                                value="Yes" data-aria-controls="conditional-financial-conditional">
+                            <label class="govuk-label govuk-radios__label" for="financial-conditional">
+                                Yes
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-financial-conditional">
+
+                            <div class="govuk-form-group">
+                                <fieldset class="govuk-fieldset" role="group"
+                                    aria-describedby="financial-completed-hint">
+                                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+
+                                        <h2 class="govuk-fieldset__heading">
+                                            When was this action completed?
+                                        </h2>
+                                    </legend>
+                                    <span id="financial-hint" class="govuk-hint">
+                                        For example, 12 11 2017
+                                    </span>
+                                    <div class="govuk-date-input" id="financial">
+                                        <div class="govuk-date-input__item">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label govuk-date-input__label" for="financial-end-day">
+                                                    Day
+                                                </label>
+                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                                                    id="financial-day" name="financial-end-day" type="number"
+                                                    pattern="[0-9]*">
+                                            </div>
+                                        </div>
+                                        <div class="govuk-date-input__item">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label govuk-date-input__label"
+                                                    for="financial-month">
+                                                    Month
+                                                </label>
+                                                <input class="govuk-input govuk-date-input__input govuk-input--width-2"
+                                                    id="financial-month" name="financial-end-month" type="number"
+                                                    pattern="[0-9]*">
+                                            </div>
+                                        </div>
+                                        <div class="govuk-date-input__item">
+                                            <div class="govuk-form-group">
+                                                <label class="govuk-label govuk-date-input__label" for="financial-year">
+                                                    Year
+                                                </label>
+                                                <input class="govuk-input govuk-date-input__input govuk-input--width-4"
+                                                    id="financial-year" name="financial-end-year" type="number"
+                                                    pattern="[0-9]*">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="financial-conditional-2" name="financial"
+                                type="radio" value="No" data-aria-controls="conditional-financial-conditional-2">
+                            <label class="govuk-label govuk-radios__label" for="financial-conditional-2">
+                                No
+                            </label>
+                        </div>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden"
+                            id="conditional-financial-conditional-2">
+
+                            <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset" aria-describedby="payment-plan-hint">
+                                      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                        <h1 class="govuk-fieldset__heading">
+                                          Is there a payment plan in place?
+                                        </h1>
+                                      </legend>
+                                     
+                                      <div class="govuk-radios govuk-radios--inline">
+                                        <div class="govuk-radios__item">
+                                          <input class="govuk-radios__input" id="payment-plan" name="payment-plan" type="radio" value="Yes">
+                                          <label class="govuk-label govuk-radios__label" for="payment-plan">
+                                            Yes
+                                          </label>
+                                        </div>
+                                        <div class="govuk-radios__item">
+                                          <input class="govuk-radios__input" id="payment-plan-2" name="payment-plan" type="radio" value="No">
+                                          <label class="govuk-label govuk-radios__label" for="payment-plan-2">
+                                            No
+                                          </label>
+                                        </div>
+                                      </div>
+                                    </fieldset>
+                                  </div>
+
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button" type="submit">
+                Continue
+            </button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}

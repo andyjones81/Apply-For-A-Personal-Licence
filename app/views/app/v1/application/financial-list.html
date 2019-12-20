@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-Tell us about any assets and liabilities you have which are {{allimit}}
+Tell us about any criminal offences, and any criminal investigations currently in progress
 {% endblock %}
 
 {% block heroClass %}
@@ -17,7 +17,8 @@ Tell us about any assets and liabilities you have which are {{allimit}}
             </div>
             <div class="govuk-grid-column-one-third">
                 <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
-                        href="/app/v1/application/tasks">Application tasks</a></p>
+                        href="/app/v1/application/tasks">Application
+                        tasks</a></p>
             </div>
         </div>
     </div>
@@ -29,62 +30,51 @@ Tell us about any assets and liabilities you have which are {{allimit}}
 {% endblock %}
 
 {% block content %}
-
 <div class="govuk-grid-row">
-
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Tell us about any assets and liabilities you have which are {{allimit}}</h1>
         <form method="POST">
+            <h1 class="govuk-heading-l">Tell us about any of the following financial actions in the last 5 years where you have:</h1>
 
-            {% if listOfItems.length > 0 %}
+            <ul class="govuk-list govuk-list--bullet">
+                <li>been declared bankrupt</li>
+                <li>been sequestrated</li>
+                <li>entered into an agreement with creditors</li>
+                <li>entered into an Individual Voluntary Agreement (IVA)</li>
+                <li>entered into a protected trust deed</li>
+            </ul>
 
             <table class="govuk-table">
-                <caption class="govuk-table__caption"><span class="govuk-visually-hidden">Names</span></caption>
+                <caption class="govuk-table__caption govuk-heading-m">Financial actions</caption>
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="col">Type</th>
-                        <th class="govuk-table__header" scope="col">Amount</th>
+                        <th class="govuk-table__header" scope="col">Date</th>
                         <th class="govuk-table__header" scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody class="govuk-table__body">
 
-                    {%for i in listOfItems %}
-
                     <tr class="govuk-table__row">
                         <th class="govuk-table__header" scope="row">
-                           {{i.type}}</th>
-                        <td class="govuk-table__cell">£{{i.amount | numeral("0,0")}}</td>
-                        <td class="govuk-table__cell"><a href="/app/v1/application/remove-assets-liabilities/{{i.id}}">Remove <span
-                                    class="govuk-visually-hidden">{{i.type}} for {{i.amount}}</span></a></td>
+                            {{data['financial-type']}}</th>
+                        <td class="govuk-table__cell">
+                            {% set date = (data['financial-month'] + '/' + data['financial-day'] + '/' + data['financial-year']) %}
+                            {{date | date('DD MMMM YYYY')}}</td>
+
+                        <td class="govuk-table__cell"><a href="/app/v1/application/financial">Remove <span
+                                    class="govuk-visually-hidden"> {{data['financial-type']}}</span></a></td>
                     </tr>
-                    {%endfor%}
 
                 </tbody>
             </table>
 
 
-            <p class="govuk-body  govuk-!-margin-top-7 govuk-!-margin-bottom-7"><a href="/app/v1/application/add-assets-liabilities">Add asset or liability</a></p>
-
-            <button class="govuk-button" data-module="govuk-button">
-                Save and continue
-            </button>
-            {% else %}
-
-            <p class="govuk-body  govuk-!-margin-top-7 govuk-!-margin-bottom-7"><a href="/app/v1/application/add-assets-liabilities">Add asset or liability</a></p>
+            <p class="govuk-body govuk-!-margin-top-7 govuk-!-margin-bottom-7"><a
+                    href="/app/v1/application/financial-type">Add details of financial action</a></p>
 
             <button class="govuk-button" data-module="govuk-button">
                 I don't have any to add
             </button>
-
-
-            {% endif%}
-
-
-
-
-
-
 
         </form>
     </div>
