@@ -1,0 +1,80 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+Start a new application
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+       
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                 Select the roles you will be performing
+                </h1> 
+               
+              </legend> 
+              <span id="waste-hint" class="govuk-hint">
+                Select all that apply.
+              </span>
+           
+              <h2 class="govuk-heading-m">See spec (and TFS 5125)</h2>
+              <p class="govuk-body">Checkboxes of roles and responsibilites based on rules</p>
+             
+              <div class="govuk-checkboxes"> <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="role-2" name="role" type="checkbox" value="Casino dealer or croupier">
+                  <label class="govuk-label govuk-checkboxes__label" for="role-2">
+                    Casino dealer or croupier
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="role" name="role" type="checkbox" value="Casino cashier">
+                  <label class="govuk-label govuk-checkboxes__label" for="role">
+                    Casino cashier
+                  </label>
+                </div>
+               
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="role-3" name="role" type="checkbox" value="...">
+                  <label class="govuk-label govuk-checkboxes__label" for="role-3">
+                    ...
+                  </label>
+                </div>
+              </div>
+               
+            
+                
+               
+            </fieldset>
+          </div>
+
+       <a href="/app/v1/application/pre-shareholder" class="govuk-button">Continue</a>
+      
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}

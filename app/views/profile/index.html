@@ -14,31 +14,19 @@ Manage your profile
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Your profile</h1>
+        <h1 class="govuk-heading-l">Security details</h1>
 
-        <h2 class="govuk-heading-m">Personal details</h2>
+        <p class="govuk-body">You can update your email address and password. These are only used for accessing this service.</p>
+
 
         <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                    Name
-                </dt>
-                <dd class="govuk-summary-list__value">
-                    {{data['first-name']}}  {{data['last-name']}}
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                    <a class="govuk-link" href="#">
-                        Change<span class="govuk-visually-hidden"> name</span>
-                    </a>
-                </dd>
-            </div>
 
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                     Email address
                 </dt>
                 <dd class="govuk-summary-list__value">
-                        {{data['email']}}
+                    someone@example.com
                 </dd>
                 <dd class="govuk-summary-list__actions">
                     <a class="govuk-link" href="#">
@@ -46,27 +34,10 @@ Manage your profile
                     </a>
                 </dd>
             </div>
-            <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                        Telephone number
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                            {{data['telephone-number']}}
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                            Change<span class="govuk-visually-hidden"> telephone number</span>
-                        </a>
-                    </dd>
-                </div>
-           
         </dl>
 
+        <dl class="govuk-summary-list">
 
-        <h2 class="govuk-heading-m">Security</h2>
-
-        <dl class="govuk-summary-list">       
-           
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key">
                     Password

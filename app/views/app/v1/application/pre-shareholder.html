@@ -1,0 +1,65 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+Start a new application
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="rolshareholder-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+               [Are you][Is the applicant] a shareholder? (check wording of this question)
+            </h1>
+          </legend>
+          <span id="rolshareholder-hint" class="govuk-hint">
+           Guidance on what we define as a shareholder
+          </span>
+          <div class="govuk-radios govuk-radios--inline">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rolshareholder" name="rolshareholder" type="radio" value="Yes">
+              <label class="govuk-label govuk-radios__label" for="rolshareholder">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="rolshareholder-2" name="rolshareholder" type="radio" value="No">
+              <label class="govuk-label govuk-radios__label" for="rolshareholder-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+       
+
+       <a href="/app/v1/application/pre-cya" class="govuk-button">Continue</a>
+      
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}

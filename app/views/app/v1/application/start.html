@@ -17,11 +17,40 @@ Start a new application
 
     <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-l">Start page</h1>
-        
-        <p class="govuk-body">Not yet designed</p>
+       
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  What licence are you applying for?
+                </h1> 
+               
+              </legend> <p class="govuk-body">If you are not sure what licence you need, you can <a href="">find information about our licences</a> on our website. (Link opens in a new window)</p>
 
-       <a href="/app/v1/application/name" class="govuk-button">Jump to Name</a>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="licence-type" name="licence-type" type="radio" value="Annex A">
+                  <label class="govuk-label govuk-radios__label" for="licence-type">
+                    Annex A
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="licence-type-2" name="licence-type" type="radio" value="Functional licence">
+                  <label class="govuk-label govuk-radios__label" for="licence-type-2">
+                    Functional licence
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="licence-type-3" name="licence-type" type="radio" value="Management licence">
+                  <label class="govuk-label govuk-radios__label" for="licence-type-3">
+                    Management licence
+                  </label>
+                </div>
+               
+            </fieldset>
+          </div>
+
+       <a href="/app/v1/application/pre-sectors" class="govuk-button">Continue</a>
       
     </div>
 </div>

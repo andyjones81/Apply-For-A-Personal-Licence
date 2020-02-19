@@ -1,0 +1,92 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+Application progress
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-quarter">
+        <nav class="gc-vertical-nav">
+          <ul class="gc-vertical-nav__section">
+          
+            <li class="gc-vertical-nav__section-item   gc-vertical-nav__section-item--current">
+              <a class="gc-vertical-nav__link " href="#">Application progress</a>
+            </li>
+           
+           
+            <li class="gc-vertical-nav__section-item ">
+              <a class="gc-vertical-nav__link " href="#">Print application</a>
+            </li>
+            <li class="gc-vertical-nav__section-item">
+              <a class="gc-vertical-nav__link " href="#">Withdraw application</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      
+            <h1 class="govuk-heading-l">Track your application progress</h1>
+            <p class="govuk-body-l">If we need information from you, we will email you with details and how to provide them.</p>
+      
+            <div class="timeline">
+                <ul>
+          
+                  <li>
+                    <h2 class="govuk-heading-m">Application processing started</h2>
+                    <p class="time">2 February 2020 at 11:32am</p>
+                    <p>Your licence application has started to be processed</p>
+                    
+                  </li>
+                  <li>
+                    <h2 class="govuk-heading-m">Application submitted</h2>
+                    <p class="time">28 January 2020 at 11:16am</p>
+                    <p>We also sent an email to someone@example.com confirming submission.</p>
+                  </li>
+                  <li>
+                    <h2 class="govuk-heading-m">Application payment received</h2>
+                    <p class="time">28 January 2020 at 11:15am</p>
+                    <p>Application fee of £370 paid - reference 87HRF39HF3EH</p>
+                    
+                    <p>We also sent an email to someone@example.com confirming payment.</p>
+                  </li>
+                  <li>
+                    <h2 class="govuk-heading-m">Application created</h2>
+                    <p class="time">20 December 2019 at 9:06am</p>
+                    <p>Application reference PML-123456</p>
+                  </li>
+                </ul>
+          
+              </div>
+
+     
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}
