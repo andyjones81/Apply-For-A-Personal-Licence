@@ -17,7 +17,7 @@ Start a new application
 
     <div class="govuk-grid-column-two-thirds">
 
-       
+       <form method="POST">
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
@@ -30,8 +30,6 @@ Start a new application
                 Select all that apply.
               </span>
            
-              <h2 class="govuk-heading-m">See spec (and TFS 5125)</h2>
-              <p class="govuk-body">Checkboxes of roles and responsibilites based on rules</p>
              
               <div class="govuk-checkboxes"> <div class="govuk-checkboxes__item">
                   <input class="govuk-checkboxes__input" id="role-2" name="role" type="checkbox" value="Casino dealer or croupier">
@@ -47,11 +45,26 @@ Start a new application
                 </div>
                
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="role-3" name="role" type="checkbox" value="...">
+                  <input class="govuk-checkboxes__input" id="role-3" name="role" type="checkbox" value="Casino inspector">
                   <label class="govuk-label govuk-checkboxes__label" for="role-3">
-                    ...
+                    Casino inspector
                   </label>
                 </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="role-4" name="role" type="checkbox" value="Casino pit boss or gaming supervisor">
+                  <label class="govuk-label govuk-checkboxes__label" for="role-4">
+                    Casino pit boss or gaming supervisor 
+                  </label>
+                </div>
+
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="role-5" name="role" type="checkbox" value="Casino surveillance">
+                  <label class="govuk-label govuk-checkboxes__label" for="role-5">
+                    Casino surveillance
+                  </label>
+                </div>
+                
               </div>
                
             
@@ -60,8 +73,8 @@ Start a new application
             </fieldset>
           </div>
 
-       <a href="/app/v1/application/pre-shareholder" class="govuk-button">Continue</a>
-      
+          <button class="govuk-button" type="submit">Continue</a>
+          </form>
     </div>
 </div>
 

@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-Start a new application
+What licence are you applying for?
 {% endblock %}
 
 {% block heroClass %}
@@ -16,7 +16,7 @@ Start a new application
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-
+<form method="post">
        
         <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
@@ -50,8 +50,8 @@ Start a new application
             </fieldset>
           </div>
 
-       <a href="/app/v1/application/pre-sectors" class="govuk-button">Continue</a>
-      
+       <button type="submit" class="govuk-button">Continue</a>
+</form>
     </div>
 </div>
 

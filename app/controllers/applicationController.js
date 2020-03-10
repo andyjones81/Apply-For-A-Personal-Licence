@@ -2,18 +2,24 @@ const uuidv4 = require('uuid/v4');
 
 // GETS *********************************************************************************
 
+
+
+exports.application_prefor_get = function (req, res) {
+    res.render('app/v1/application/pre-for', {});
+}
+
 exports.application_start_get = function (req, res) {
     res.render('app/v1/application/start', {});
 }
 
 exports.application_sector_get = function (req, res) {
-    res.render('app/v1/application/sector', {});
+    res.render('app/v1/application/pre-sectors', {});
 }
 
 
 
 exports.application_roles_get = function (req, res) {
-    res.render('app/v1/application/roles', {});
+    res.render('app/v1/application/pre-role', {});
 }
 
 exports.application_equity_get = function (req, res) {
@@ -216,6 +222,8 @@ exports.application_remove_previous_name_get = function (req, res) {
 
     res.redirect('/app/v1/application/previous-names');
 }
+
+
 
 exports.application_assets_liabilities_get = function (req, res) {
 
@@ -472,8 +480,55 @@ exports.financial_check_get = function (req, res) {
 exports.financial_list_get = function (req, res) {
     res.render('app/v1/application/financial-list', {});
 }
+exports.application_totalassets_get = function (req, res) {
+    res.render('app/v1/application/assets-total', {});
+}
+exports.application_assets_get = function (req, res) {
+    res.render('app/v1/application/assets', {});
+}
+exports.application_addasset_get = function (req, res) {
+    res.render('app/v1/application/add-asset');
+}
+exports.application_removeasset_get = function (req, res) {
+    var id = req.params.id;
+    var listOfItems = [];
+    var listOfItems = req.session.data["assetslist"];
+
+    // Check the session
+
+    var sessionObject = listOfItems.filter(function (value) {
+        return value.id !== id;
+    });
+
+    req.session.data["assetslist"] = sessionObject;
 
 
+    //Whats the total assets required?
+
+    var totalAssetsNeeded = req.session.data['assets70Percent'];
+
+    var left = (totalAssetsNeeded - sum)
+    console.log(left)
+    req.session.data['assetsLeftToAdd'] = left;
+
+    res.redirect('/app/v1/application/assets');
+
+
+
+    res.redirect('/app/v1/application/assets');
+
+
+    res.render('app/v1/application/remove-asset');
+}
+exports.application_totalliabilities_get = function (req, res) {
+    res.render('app/v1/application/liabilities-total', {});
+}
+exports.application_liabilities_get = function (req, res) {
+    res.render('app/v1/application/liabilities', {});
+}
+exports.application_addliability_get = function (req, res) {
+    res.render('app/v1/application/add-liability');
+}
 
 
 
@@ -482,20 +537,33 @@ exports.financial_list_get = function (req, res) {
 
 
 
+exports.application_prefor_post = function (req, res) {
+
+    res.redirect('/app/v1/application/start');
+}
 
 
 
 exports.application_start_post = function (req, res) {
-    res.redirect('/app/v1/application/sector');
+
+
+    if (req.session.data['licence-type'] === 'Functional licence') {
+        res.redirect('/app/v1/application/pre-role');
+    }
+    else {
+        res.redirect('/app/v1/application/pre-sectors');
+    }
 }
 
 
 exports.application_sector_post = function (req, res) {
-    res.redirect('/app/v1/application/roles');
+
+
+    res.redirect('/app/v1/application/pre-role');
 }
 
 exports.application_roles_post = function (req, res) {
-    res.redirect('/app/v1/application/equity');
+    res.redirect('/app/v1/application/pre-cya');
 }
 
 exports.application_equity_post = function (req, res) {
@@ -910,9 +978,154 @@ exports.financial_list_post = function (req, res) {
     res.redirect('/app/v1/application/criminality-initial');
 }
 
+exports.application_totalassets_post = function (req, res) {
+
+    var assets70Percent = "";
+    var total = cleanNumber(req.session.data['totalassets']);
+
+    if (total < 50000) {
+        res.redirect('/app/v1/application/liabilities-total');
+    }
+    else {
+        assets70Percent = (total * 0.70);
+        req.session.data['assets70Percent'] = assets70Percent;
+
+        res.redirect('/app/v1/application/assets');
+    }
+}
+
+exports.application_assets_post = function (req, res) {
+    res.redirect('/app/v1/application/liabilities-total');
+}
+exports.application_addasset_post = function (req, res) {
+
+    var listOfItems = req.session.data["assetslist"];
+    req.session.data['assetsLeftToAdd'] = 0;
+  
+    // Check the session
+
+    var listOfItems = [];
+
+    if (req.session.data['assetslist'] !== undefined) {
+        listOfItems = req.session.data['assetslist'];
+    }
+
+    var aamount = req.body['a-amount'].replace(/,/g, '');;
+
+    listOfItems.push({
+        amount: cleanNumber(aamount),
+        details: req.body['a-details'],
+        id: uuidv4()
+    })
+
+    req.session.data['assetslist'] = listOfItems;
+
+    //Sum up the assets added and whats left to add
+    var totalAddedAssets = 0;
+
+    if (req.session.data['totalAddedAssets'] !== undefined) {
+        totalAddedAssets = req.session.data['totalAddedAssets']
+    }
+
+    console.log(totalAddedAssets)
+
+    var tempAssets = cleanNumber(aamount);
+    console.log(tempAssets)
+
+    var sum = (totalAddedAssets + tempAssets)
+    console.log(sum)
+    req.session.data['totalAddedAssets'] = sum;
+
+    //Whats the total assets required?
+
+    var totalAssetsNeeded = req.session.data['assets70Percent'];
+
+    var left = (totalAssetsNeeded - sum)
+    console.log(left)
+    req.session.data['assetsLeftToAdd'] = left;
+
+    res.redirect('/app/v1/application/assets');
+
+}
+
+
+
+exports.application_totalliabilities_post = function (req, res) {
+
+    var liabilities70Percent = "";
+    var total = cleanNumber(req.session.data['totalliabilities']);
+
+    if (total < 50000) {
+        res.redirect('/app/v1/application/criminality');
+    }
+    else {
+        liabilities70Percent = (total * 0.70);
+        req.session.data['liabilities70Percent'] = liabilities70Percent;
+
+        res.redirect('/app/v1/application/liabilities');
+    }
+}
+
+exports.application_liabilities_post = function (req, res) {
+    res.redirect('/app/v1/application/liabilities');
+}
+
+
+exports.application_addliability_post = function (req, res) {
+    var listOfItems = req.session.data["liabilitieslist"];
+    req.session.data['liabilitiesLeftToAdd'] = 0;
+  
+    // Check the session
+
+    var listOfItems = [];
+
+    if (req.session.data['liabilitieslist'] !== undefined) {
+        listOfItems = req.session.data['liabilitieslist'];
+    }
+
+    var aamount = req.body['l-amount'].replace(/,/g, '');;
+
+    listOfItems.push({
+        amount: cleanNumber(aamount),
+        details: req.body['l-details'],
+        id: uuidv4()
+    })
+
+    req.session.data['liabilitieslist'] = listOfItems;
+
+    //Sum up the liabilities added and whats left to add
+    var totalAddedliabilities = 0;
+
+    if (req.session.data['totalAddedliabilities'] !== undefined) {
+        totalAddedliabilities = req.session.data['totalAddedliabilities']
+    }
+
+    console.log(totalAddedliabilities)
+
+    var templiabilities = cleanNumber(aamount);
+    console.log(templiabilities)
+
+    var sum = (totalAddedliabilities + templiabilities)
+    console.log(sum)
+    req.session.data['totalAddedliabilities'] = sum;
+
+    //Whats the total liabilities required?
+
+    var totalliabilitiesNeeded = req.session.data['liabilities70Percent'];
+
+    var left = (totalliabilitiesNeeded - sum)
+    console.log(left)
+    req.session.data['liabilitiesLeftToAdd'] = left;
+
+    res.redirect('/app/v1/application/liabilities');
+
+}
 
 
 function cleanNumber(x) {
+
+    x = parseFloat(x.replace(/,/g, ''));
     x = Number(x);
     return x >= 0 ? Math.floor(x) : Math.ceil(x);
+
 }

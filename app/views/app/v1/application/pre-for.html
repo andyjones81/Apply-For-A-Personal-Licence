@@ -16,9 +16,9 @@ Start a new application
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-
+<form method="post">
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="rolshareholder-hint">
+        <fieldset class="govuk-fieldset" aria-describedby="prefor-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
                Who is this application for?
@@ -27,8 +27,8 @@ Start a new application
        
           <div class="govuk-radios govuk-radios--inline">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="rolshareholder" name="rolshareholder" type="radio" value="Yes">
-              <label class="govuk-label govuk-radios__label" for="rolshareholder">
+              <input class="govuk-radios__input" id="prefor" name="prefor" type="radio" value="You">
+              <label class="govuk-label govuk-radios__label" for="prefor">
                 You
               </label>
               <span id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
@@ -36,9 +36,9 @@ Start a new application
               </span>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="rolshareholder-2" name="rolshareholder" type="radio" value="No">
+              <input class="govuk-radios__input" id="prefor-2" name="prefor" type="radio" value="Someone else">
               
-              <label class="govuk-label govuk-radios__label" for="rolshareholder-2">
+              <label class="govuk-label govuk-radios__label" for="prefor-2">
                Someone else
               </label>
               <span id="sign-in-item-hint" class="govuk-hint govuk-radios__hint">
@@ -51,8 +51,8 @@ Start a new application
         </fieldset>
       </div>
       
-       <a href="/app/v1/application/start" class="govuk-button">Continue</a>
-      
+       <button class="govuk-button" type="submit">Continue</a>
+    </form>
     </div>
 </div>
 

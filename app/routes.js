@@ -48,8 +48,8 @@ router.get('/profile/', profileController.index_get);
 // APPLICATION
 // Gets
 router.get('/app/v1/application/start', applicationController.application_start_get);
-router.get('/app/v1/application/sector', applicationController.application_sector_get);
-router.get('/app/v1/application/roles', applicationController.application_roles_get);
+router.get('/app/v1/application/pre-sectors', applicationController.application_sector_get);
+router.get('/app/v1/application/pre-role', applicationController.application_roles_get);
 router.get('/app/v1/application/equity', applicationController.application_equity_get);
 router.get('/app/v1/application/name', applicationController.application_name_get);
 router.get('/app/v1/application/date-of-birth', applicationController.application_dob_get);
@@ -146,11 +146,22 @@ router.get('/app/v1/application/financial-details', applicationController.financ
 router.get('/app/v1/application/financial-check', applicationController.financial_check_get);
 router.get('/app/v1/application/financial-list', applicationController.financial_list_get);
 
+router.get('/app/v1/application/assets-total', applicationController.application_totalassets_get);
+router.get('/app/v1/application/assets', applicationController.application_assets_get);
+router.get('/app/v1/application/add-asset', applicationController.application_addasset_get);
+
+router.get('/app/v1/application/remove-asset/:id', applicationController.application_removeasset_get);
+
+router.get('/app/v1/application/liabilities-total', applicationController.application_totalliabilities_get);
+router.get('/app/v1/application/liabilities', applicationController.application_liabilities_get);
+router.get('/app/v1/application/add-liability', applicationController.application_addliability_get);
+
 
 // Posts
+router.post('/app/v1/application/pre-for', applicationController.application_prefor_post);
 router.post('/app/v1/application/start', applicationController.application_start_post);
-router.post('/app/v1/application/sector', applicationController.application_sector_post);
-router.post('/app/v1/application/roles', applicationController.application_roles_post);
+router.post('/app/v1/application/pre-sectors', applicationController.application_sector_post);
+router.post('/app/v1/application/pre-role', applicationController.application_roles_post);
 router.post('/app/v1/application/equity', applicationController.application_equity_post);
 router.post('/app/v1/application/name', applicationController.application_name_post);
 router.post('/app/v1/application/date-of-birth', applicationController.application_dob_post);
@@ -246,6 +257,15 @@ router.post('/app/v1/application/financial-completed', applicationController.fin
 router.post('/app/v1/application/financial-details', applicationController.financial_details_post);
 router.post('/app/v1/application/financial-check', applicationController.financial_check_post);
 router.post('/app/v1/application/financial-list', applicationController.financial_list_post);
+
+router.post('/app/v1/application/assets-total', applicationController.application_totalassets_post);
+router.post('/app/v1/application/assets', applicationController.application_assets_post);
+router.post('/app/v1/application/add-asset', applicationController.application_addasset_post);
+
+router.post('/app/v1/application/liabilities-total', applicationController.application_totalliabilities_post);
+router.post('/app/v1/application/liabilities', applicationController.application_liabilities_post);
+router.post('/app/v1/application/add-liability', applicationController.application_addliability_post);
+
 
 
 module.exports = router

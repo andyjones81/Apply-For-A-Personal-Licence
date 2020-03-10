@@ -26,7 +26,7 @@ Are you adding an asset or a liability?
 {% endblock %}
 
 {% block beforeContent %}
-<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+<a href="/app/v1/application/assets" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -36,53 +36,29 @@ Are you adding an asset or a liability?
     <div class="govuk-grid-column-two-thirds">
         <form method="POST">
          
-                <h1 class="govuk-heading-l">Details of the asset or liability</h1>
+                <h1 class="govuk-heading-l">Tell us about the asset you are adding</h1>
 
-                <div class="govuk-form-group">
-                        <fieldset class="govuk-fieldset" aria-describedby="al-type-hint">
-                          <legend class="govuk-fieldset__legend">
-                            <h2 class="govuk-fieldset__heading">
-                             What are you adding?
-                            </h2>
-                          </legend>
-                         
-                          <div class="govuk-radios govuk-radios--inline">
-                            <div class="govuk-radios__item">
-                              <input class="govuk-radios__input" id="al-type" name="al-type" type="radio" value="Asset">
-                              <label class="govuk-label govuk-radios__label" for="al-type">
-                                Asset
-                              </label>
-                            </div>
-                            <div class="govuk-radios__item">
-                              <input class="govuk-radios__input" id="al-type-2" name="al-type" type="radio" value="Liability">
-                              <label class="govuk-label govuk-radios__label" for="al-type-2">
-                                Liability
-                              </label>
-                            </div>
-                          </div>
-                        </fieldset>
-                      </div>
 
                       <div class="govuk-form-group">
-                            <label class="govuk-label" for="al-amount">
-                            Amount
+                            <label class="govuk-label" for="a-amount">
+                           Value of the asset
                             </label>
                             <div id="alamount" class="govuk-visually-hidden">in pounds</div>
                             <div class="gc-currency-input">
                                 <div class="gc-currency-input__symbol" aria-hidden="true">£</div>
-                                <input class="govuk-input govuk-input--width-10" id="al-amount" name="al-amount" type="text" aria-describedby="amount-currency">
+                                <input class="govuk-input govuk-input--width-10" id="a-amount" name="a-amount" type="text" aria-describedby="amount-currency">
                             </div>            
                         </div>
                         <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
                                 <div class="govuk-form-group">
-                                  <label class="govuk-label" for="al-details">
+                                  <label class="govuk-label" for="a-details">
                                     Details
                                   </label>
                                   
-                                  <textarea class="govuk-textarea govuk-js-character-count" id="al-details" name="al-details" rows="5" aria-describedby="al-details-info al-details-hint"></textarea>
+                                  <textarea class="govuk-textarea govuk-js-character-count" id="a-details" name="a-details" rows="5" aria-describedby="a-details-info a-details-hint"></textarea>
                                 </div>
                               
-                                <span id="al-details-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+                                <span id="a-details-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
                                   You can enter up to 200 characters
                                 </span>
                               </div>

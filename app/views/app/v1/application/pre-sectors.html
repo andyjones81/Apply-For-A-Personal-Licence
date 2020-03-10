@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-Start a new application
+Select the sectors you will be working in
 {% endblock %}
 
 {% block heroClass %}
@@ -16,13 +16,13 @@ Start a new application
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-
-       
-        <div class="govuk-form-group">
+<form method="post">       
+  
+  <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                 Select the sectors [you] [the applicant] will be working in
+                 Select the sectors {{ "you" if data['prefor'] === 'You' else "the applicant" }} will be working in
                 </h1> 
                
               </legend> 
@@ -47,9 +47,39 @@ Start a new application
                 </div>
                
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="sector-3" name="sector" type="checkbox" value="...">
+                  <input class="govuk-checkboxes__input" id="sector-3" name="sector" type="checkbox" value="Non-remote bingo">
                   <label class="govuk-label govuk-checkboxes__label" for="sector-3">
-                    ...
+                    Bingo
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="sector-4" name="sector" type="checkbox" value="Non-remote casino">
+                  <label class="govuk-label govuk-checkboxes__label" for="sector-4">
+                    Casino
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="sector-5" name="sector" type="checkbox" value="Non-remote family entertainment centre">
+                  <label class="govuk-label govuk-checkboxes__label" for="sector-5">
+                    Family entertainment centre
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="sector-6" name="sector" type="checkbox" value="Non-remote gambling software">
+                  <label class="govuk-label govuk-checkboxes__label" for="sector-6">
+                   Gambling software
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="sector-7" name="sector" type="checkbox" value="Non-remote lotteries">
+                  <label class="govuk-label govuk-checkboxes__label" for="sector-7">
+                  Lotteries
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="sector-8" name="sector" type="checkbox" value="Non-remote machines">
+                  <label class="govuk-label govuk-checkboxes__label" for="sector-8">
+                  Machines
                   </label>
                 </div>
               </div>
@@ -57,24 +87,42 @@ Start a new application
               <h2 class="govuk-heading-m govuk-!-margin-top-5">Remote</h2>
               <p class="govuk-body">Guidance on non-remote meaning</p>
              
-              <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes  ">
               
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="sector-2" name="sector" type="checkbox" value="Remote betting">
-                  <label class="govuk-label govuk-checkboxes__label" for="sector-2">
+                  <input class="govuk-checkboxes__input" id="rsector-2" name="sector" type="checkbox" value="Remote betting">
+                  <label class="govuk-label govuk-checkboxes__label" for="rsector-2">
                     Betting
                   </label>
                 </div>  
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="sector" name="sector" type="checkbox" value="Remote bingo">
-                  <label class="govuk-label govuk-checkboxes__label" for="sector">
+                  <input class="govuk-checkboxes__input" id="rsector" name="sector" type="checkbox" value="Remote bingo">
+                  <label class="govuk-label govuk-checkboxes__label" for="rsector">
                     Bingo
                   </label>
                 </div>
                 <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="sector-3" name="sector" type="checkbox" value="....">
-                  <label class="govuk-label govuk-checkboxes__label" for="sector-3">
-                    ....
+                  <input class="govuk-checkboxes__input" id="rsector-3" name="sector" type="checkbox" value="Remote casinos">
+                  <label class="govuk-label govuk-checkboxes__label" for="rsector-3">
+                    Casino
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="rsector-4" name="sector" type="checkbox" value="Remote gambling software">
+                  <label class="govuk-label govuk-checkboxes__label" for="rsector-4">
+                    Gambling software
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="rsector-5" name="sector" type="checkbox" value="Remote gambling lotteries">
+                  <label class="govuk-label govuk-checkboxes__label" for="rsector-5">
+                    Lotteries
+                  </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="rsector-6" name="sector" type="checkbox" value="Remote machines">
+                  <label class="govuk-label govuk-checkboxes__label" for="rsector-6">
+                    Machines
                   </label>
                 </div>
               </div>
@@ -83,7 +131,8 @@ Start a new application
             </fieldset>
           </div>
 
-       <a href="/app/v1/application/pre-role" class="govuk-button">Continue</a>
+          <button class="govuk-button" type="submit">Continue</a>
+          </form>
       
     </div>
 </div>

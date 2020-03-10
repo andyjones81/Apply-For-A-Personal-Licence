@@ -25,7 +25,7 @@ Tell us about any assets and liabilities you have which are {{allimit}}
 {% endblock %}
 
 {% block beforeContent %}
-<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
+<a href="/app/v1/application/assets-total" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -33,29 +33,32 @@ Tell us about any assets and liabilities you have which are {{allimit}}
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Tell us about any assets and liabilities you have which are {{allimit}}</h1>
+        <h1 class="govuk-heading-l">Tell us about your assets up to a total value of
+            £{{data['assets70Percent'] | numeral}}</h1>
+        <p>We only need to know about 70% of your assets.</p>
         <form method="POST">
 
-            {% if listOfItems.length > 0 %}
+
+
+            {% if data['assetslist'].length > 0 %}
 
             <table class="govuk-table">
-                <caption class="govuk-table__caption"><span class="govuk-visually-hidden">Names</span></caption>
+                <caption class="govuk-table__caption"><span class="govuk-visually-hidden">Assets</span></caption>
                 <thead class="govuk-table__head">
                     <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="col">Type</th>
-                        <th class="govuk-table__header" scope="col">Amount</th>
+                        <th class="govuk-table__header" scope="col">Value</th>
+                        <th class="govuk-table__header" scope="col">Details</th>
                         <th class="govuk-table__header" scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody class="govuk-table__body">
 
-                    {%for i in listOfItems %}
+                    {%for i in data['assetslist'] %}
 
                     <tr class="govuk-table__row">
-                        <th class="govuk-table__header" scope="row">
-                           {{i.type}}</th>
                         <td class="govuk-table__cell">£{{i.amount | numeral("0,0")}}</td>
-                        <td class="govuk-table__cell"><a href="/app/v1/application/remove-assets-liabilities/{{i.id}}">Remove <span
+                        <td class="govuk-table__cell">{{i.details | truncate(30)}}</td>
+                        <td class="govuk-table__cell"><a href="/app/v1/application/remove-asset/{{i.id}}">Remove <span
                                     class="govuk-visually-hidden">{{i.type}} for {{i.amount}}</span></a></td>
                     </tr>
                     {%endfor%}
@@ -63,20 +66,43 @@ Tell us about any assets and liabilities you have which are {{allimit}}
                 </tbody>
             </table>
 
+      
 
-            <p class="govuk-body  govuk-!-margin-top-7 govuk-!-margin-bottom-7"><a href="/app/v1/application/add-assets-liabilities">Add asset or liability</a></p>
+            {% if data['assetsLeftToAdd']  <0 %}
+            <p class="govuk-body">You don't need to add any more assets.
+            </p> 
+            {% else %}
+            <p class="govuk-body govuk-!-font-weight-bold">You need to add more assets up to £{{data['assetsLeftToAdd'] | numeral}}.
+            </p>  
+            
+            <p class="govuk-body govuk-!-margin-bottom-9"><a href="/app/v1/application/add-asset">Add more assets </a></p>
+
+            {%endif%}
+           
+
+         
 
             <button class="govuk-button" data-module="govuk-button">
                 Save and continue
             </button>
             {% else %}
 
-            <p class="govuk-body  govuk-!-margin-top-7 govuk-!-margin-bottom-7"><a href="/app/v1/application/add-assets-liabilities">Add asset or liability</a></p>
+            <div class="govuk-inset-text">
 
-            <button class="govuk-button" data-module="govuk-button">
-                I don't have any to add
-            </button>
+                <p class="govuk-body">No assets have been added</p>
 
+                
+       
+                <p class="govuk-body govuk-!-font-weight-bold">You need to add up to £{{data['assets70Percent'] | numeral}} worth of assets.
+                </p>
+
+   
+
+
+
+                <a href="/app/v1/application/add-asset" class="govuk-button">Add assets</a>
+
+            </div>
 
             {% endif%}
 

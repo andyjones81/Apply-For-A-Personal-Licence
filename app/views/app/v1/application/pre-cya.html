@@ -15,24 +15,24 @@ Start a new application
 
 <div class="govuk-grid-row">
 
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        Check your answers before proceeding
-     </h1>
-     
-     <p>You won't be able to change these details once you confirm they are correct.</p>
+    <h1 class="govuk-heading-l">
+      Check your answers before proceeding
+    </h1>
 
-     <dl class="govuk-summary-list">
+    <p>You won't be able to change these details once you confirm they are correct.</p>
+
+    <dl class="govuk-summary-list">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Licence type
         </dt>
         <dd class="govuk-summary-list__value">
-         Management licence
+          {{data['licence-type']}}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="/app/v1/application/start">
             Change<span class="govuk-visually-hidden"> licence type</span>
           </a>
         </dd>
@@ -42,12 +42,12 @@ Start a new application
           Sectors
         </dt>
         <dd class="govuk-summary-list__value">
-          Non-remote bingo<br>
-          Non-remote casino<br>
-          Remote betting
+
+          {{ data['sector'] }}
+        
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="/app/v1/application/pre-sectors">
             Change<span class="govuk-visually-hidden"> sector information</span>
           </a>
         </dd>
@@ -57,10 +57,10 @@ Start a new application
           Roles
         </dt>
         <dd class="govuk-summary-list__value">
-        Overall strategy and delivery of gambling
+          {{ data['role'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="/app/v1/application/pre-role">
             Change<span class="govuk-visually-hidden"> role information</span>
           </a>
         </dd>
@@ -70,7 +70,7 @@ Start a new application
           Shareholder
         </dt>
         <dd class="govuk-summary-list__value">
-         Yes
+          Yes
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">
@@ -79,31 +79,32 @@ Start a new application
         </dd>
       </div>
     </dl>
-      
 
-    
-    <h1 class="govuk-heading-l">
+
+
+    <h1 class="govuk-heading-m">
       Confirmation
-   </h1>
-   
-   <p>This is the last point where you can change these details. If they are wrong and you continue your application, you'll need to start a new application.</p>
+    </h1>
+
+    <p>This is the last point where you can change these details. If they are wrong and you continue your application,
+      you'll need to start a new application.</p>
 
 
-       <a href="/app/v1/application/name" class="govuk-button">Confirm and continue application</a>
-      
-    </div>
+    <a href="/app/v1/application/name" class="govuk-button">Confirm and continue application</a>
+
+  </div>
 </div>
 
 {% endblock %}
 
 {% block pageHelp %}
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-        <h3 class="govuk-heading-m">What this page is for</h3>
-        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
-            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
-        <h3 class="govuk-heading-m">Known issues</h3>
-        <p class="govuk-body">There are no known issues for this page.</p>
-    </div>
+  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-m">What this page is for</h3>
+    <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+      Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+    <h3 class="govuk-heading-m">Known issues</h3>
+    <p class="govuk-body">There are no known issues for this page.</p>
+  </div>
 </div>
 {% endblock %}
