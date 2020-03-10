@@ -979,7 +979,8 @@ exports.financial_list_post = function (req, res) {
 }
 
 exports.application_totalassets_post = function (req, res) {
-
+    req.session.data['assetsLeftToAdd'] = undefined;
+    req.session.data['assetslist'] = undefined;
     var assets70Percent = "";
     var total = cleanNumber(req.session.data['totalassets']);
 
@@ -1000,7 +1001,7 @@ exports.application_assets_post = function (req, res) {
 exports.application_addasset_post = function (req, res) {
 
     var listOfItems = req.session.data["assetslist"];
-    req.session.data['assetsLeftToAdd'] = 0;
+    req.session.data['assetsLeftToAdd'] = undefined;
   
     // Check the session
 
@@ -1051,6 +1052,8 @@ exports.application_addasset_post = function (req, res) {
 
 
 exports.application_totalliabilities_post = function (req, res) {
+    req.session.data['liabilitiesLeftToAdd'] = undefined;
+    req.session.data['liabilitieslist'] = undefined;
 
     var liabilities70Percent = "";
     var total = cleanNumber(req.session.data['totalliabilities']);
