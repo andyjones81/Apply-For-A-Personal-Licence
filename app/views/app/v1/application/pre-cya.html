@@ -37,6 +37,7 @@ Start a new application
           </a>
         </dd>
       </div>
+      {% if data['licence-type'] !== 'Functional licence' %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Sectors
@@ -52,12 +53,23 @@ Start a new application
           </a>
         </dd>
       </div>
+      {% endif %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Roles
         </dt>
         <dd class="govuk-summary-list__value">
+
+          {% if data['licence-type'] === 'Functional licence' %}
           {{ data['role'] }}
+          {%else%}
+                    {{ data['key-role'] }}
+
+          {{ data['other-role'] }}
+          {% endif%}
+          
+
+         
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="/app/v1/application/pre-role">
@@ -65,19 +77,26 @@ Start a new application
           </a>
         </dd>
       </div>
+      {% if data['licence-type'] !== 'Functional licence' %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Shareholder
         </dt>
         <dd class="govuk-summary-list__value">
+          {% if data['other-role'] === 'Shareholder, owner or partner' %}
           Yes
+          {% else%}
+          No
+          {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="#">
+          <a class="govuk-link" href="/app/v1/application/pre-role">
             Change<span class="govuk-visually-hidden"> shareholder details</span>
           </a>
         </dd>
       </div>
+      
+      {% endif %}
     </dl>
 
 

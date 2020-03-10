@@ -1,0 +1,134 @@
+{% if data['licence-type'] !== 'Functional licence'  %}
+
+<fieldset class="govuk-fieldset">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    <h1 class="govuk-fieldset__heading">
+      Select the roles you will be performing
+    </h1>
+
+  </legend>
+  <span id="waste-hint" class="govuk-hint">
+    Select all that apply.
+  </span>
+
+
+  <div class="govuk-checkboxes">
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="key-role-2" name="key-role" type="checkbox"
+        value="Overall strategy and delivery of gambling" {{ checked("key-role", "Overall strategy and delivery of gambling") }}>
+      <label class="govuk-label govuk-checkboxes__label" for="key-role-2">
+        Overall strategy and delivery of gambling
+      </label>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="key-role" name="key-role" type="checkbox"
+        value="Financial planning, control, and budgeting" {{ checked("key-role", "Financial planning, control, and budgeting") }}>
+      <label class="govuk-label govuk-checkboxes__label" for="key-role">
+        Financial planning, control, and budgeting
+      </label>
+    </div>
+
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="key-role-3" name="key-role" type="checkbox"
+        value="Regulatory compliance" {{ checked("key-role", "Regulatory compliance") }}>
+      <label class="govuk-label govuk-checkboxes__label" for="key-role-3">
+        Regulatory compliance
+      </label>
+    </div>
+
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="key-role-4" name="key-role" type="checkbox"
+        value="Marketing and commercial development" {{ checked("key-role", "Marketing and commercial development") }}>
+      <label class="govuk-label govuk-checkboxes__label" for="key-role-4">
+        Marketing and commercial development
+      </label>
+    </div>
+
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="key-role-5" name="key-role" type="checkbox"
+        value="Gambling related IT provision and security" {{ checked("key-role", "Gambling related IT provision and security") }}>
+      <label class="govuk-label govuk-checkboxes__label" for="key-role-5">
+        Gambling related IT provision and security
+      </label>
+    </div>
+   
+
+
+    {% if 'Non-remote' in data['sector'] | string %}
+
+  <h2 class="">Non-key management roles</h2>
+
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="other-role-9a" name="other-role" type="checkbox"
+      value="Regional manager" {{ checked("other-role", "Regional manager") }}>
+    <label class="govuk-label govuk-checkboxes__label" for="other-role-9a">
+      Regional manager
+    </label>
+  </div>
+
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="other-role-9" name="other-role" type="checkbox"
+      value="Area manager" {{ checked("other-role", "Area manager") }}>
+    <label class="govuk-label govuk-checkboxes__label" for="other-role-9">
+      Area manager
+    </label>
+  </div>
+
+    {% if 'Non-remote casino' in data['sector'] | string %}
+
+   
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="other-role-10" name="other-role" type="checkbox"
+        value="Casino manager" {{ checked("other-role", "Casino manager") }}>
+      <label class="govuk-label govuk-checkboxes__label" for="other-role-10">
+        Casino manager
+      </label>
+    </div>  
+     {% endif %}
+
+     {% if 'Non-remote bingo' in data['sector'] | string %}
+
+ 
+     <div class="govuk-checkboxes__item">
+       <input class="govuk-checkboxes__input" id="other-role-11" name="other-role" type="checkbox"
+         value="Bingo manager" {{ checked("other-role", "Bingo manager") }}>
+       <label class="govuk-label govuk-checkboxes__label" for="other-role-11">
+         Bingo manager
+       </label>
+     </div>  
+      {% endif %}
+    {% endif %}
+
+
+    <h2 class="">Other roles</h2>
+
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="other-role-6" name="other-role" type="checkbox"
+        value="Shareholder, owner or partner" {{ checked("other-role", "Shareholder, owner or partner") }}>
+      <label class="govuk-label govuk-checkboxes__label" for="other-role-6">
+        Shareholder, owner or partner
+      </label>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="other-role-7" name="other-role" type="checkbox"
+        value="Nominated officer for anti-money laundering and associated purposes" {{ checked("other-role", "Nominated officer for anti-money laundering and associated purposes") }}>
+      <label class="govuk-label govuk-checkboxes__label" for="other-role-7">
+        Nominated officer for anti-money laundering and associated purposes
+      </label>
+    </div>
+
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="other-role-8" name="other-role" type="checkbox"
+        value="Chairperson of the remuneration committee" {{ checked("other-role", "Chairperson of the remuneration committee") }}>
+      <label class="govuk-label govuk-checkboxes__label" for="other-role-8">
+        Chairperson of the remuneration committee
+      </label>
+    </div>
+
+
+  </div>
+
+
+
+</fieldset>
+{% endif %}

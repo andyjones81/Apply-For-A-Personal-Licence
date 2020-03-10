@@ -19,58 +19,72 @@ Start a new application
 
        <form method="POST">
         <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
-                 Select the roles you will be performing
-                </h1> 
-               
-              </legend> 
-              <span id="waste-hint" class="govuk-hint">
-                Select all that apply.
-              </span>
-           
+
+          {% if data['licence-type'] === 'Functional licence' %}
+
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+               Select the roles you will be performing
+              </h1> 
              
-              <div class="govuk-checkboxes"> <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="role-2" name="role" type="checkbox" value="Casino dealer or croupier">
-                  <label class="govuk-label govuk-checkboxes__label" for="role-2">
-                    Casino dealer or croupier
-                  </label>
-                </div>
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="role" name="role" type="checkbox" value="Casino cashier">
-                  <label class="govuk-label govuk-checkboxes__label" for="role">
-                    Casino cashier
-                  </label>
-                </div>
-               
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="role-3" name="role" type="checkbox" value="Casino inspector">
-                  <label class="govuk-label govuk-checkboxes__label" for="role-3">
-                    Casino inspector
-                  </label>
-                </div>
+            </legend> 
+            <span id="waste-hint" class="govuk-hint">
+              Select all that apply.
+            </span>
 
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="role-4" name="role" type="checkbox" value="Casino pit boss or gaming supervisor">
-                  <label class="govuk-label govuk-checkboxes__label" for="role-4">
-                    Casino pit boss or gaming supervisor 
-                  </label>
-                </div>
 
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="role-5" name="role" type="checkbox" value="Casino surveillance">
-                  <label class="govuk-label govuk-checkboxes__label" for="role-5">
-                    Casino surveillance
-                  </label>
-                </div>
-                
+         
+           
+            <div class="govuk-checkboxes"> <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="role-2" name="role" type="checkbox" value="Casino dealer or croupier">
+                <label class="govuk-label govuk-checkboxes__label" for="role-2">
+                  Casino dealer or croupier
+                </label>
               </div>
-               
-            
-                
-               
-            </fieldset>
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="role" name="role" type="checkbox" value="Casino cashier">
+                <label class="govuk-label govuk-checkboxes__label" for="role">
+                  Casino cashier
+                </label>
+              </div>
+             
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="role-3" name="role" type="checkbox" value="Casino inspector">
+                <label class="govuk-label govuk-checkboxes__label" for="role-3">
+                  Casino inspector
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="role-4" name="role" type="checkbox" value="Casino pit boss or gaming supervisor">
+                <label class="govuk-label govuk-checkboxes__label" for="role-4">
+                  Casino pit boss or gaming supervisor 
+                </label>
+              </div>
+
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="role-5" name="role" type="checkbox" value="Casino surveillance">
+                <label class="govuk-label govuk-checkboxes__label" for="role-5">
+                  Casino surveillance
+                </label>
+              </div>
+              
+            </div>
+             
+          
+              
+             
+          </fieldset>
+          {% else %}
+
+          {% include "includes/_key-roles.html" %}
+
+          {% endif %}
+
+
+
+
           </div>
 
           <button class="govuk-button" type="submit">Continue</a>
