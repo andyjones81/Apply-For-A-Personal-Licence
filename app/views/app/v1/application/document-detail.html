@@ -43,13 +43,7 @@
 
      
 
-        {% if data['docnotprovided'] === true %}
-
-        <p class="govuk-body">You've said you can't provide this file.</p>
-
-        <p class="govuk-body">{{ data['reasonfornodocument'] }}</p>
-        {% endif %}
-
+     
 
         {% if data['docload'] === true %}   
 
@@ -58,9 +52,7 @@
             <p class="govuk-body"><a href="/app/v1/application/document-upload/{{doc.id}}">Upload files</a></p>
         </div>
 
-        <p class="govuk-body"><a href="/app/v1/application/document-not-provided/{{doc.id}}">I can't provide this
-                file</a></p>
-
+       
 
         {% endif %}
 

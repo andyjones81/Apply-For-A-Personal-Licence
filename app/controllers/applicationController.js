@@ -530,6 +530,31 @@ exports.application_addliability_get = function (req, res) {
     res.render('app/v1/application/add-liability');
 }
 
+exports.application_equity_get = function (req, res) {
+    res.render('app/v1/application/equity');
+}
+
+exports.application_addequity_get = function (req, res) {
+    res.render('app/v1/application/add-equity');
+}
+
+exports.application_removeequity_get = function (req, res) {
+
+
+    var id = req.params.id;
+    var listOfItems = [];
+    var listOfItems = req.session.data["equitylist"];
+
+    // Check the session
+
+    var sessionObject = listOfItems.filter(function (value) {
+        return value.id !== id;
+    });
+
+    req.session.data["equitylist"] = sessionObject;
+
+    res.redirect('/app/v1/application/equity');
+}
 
 
 // POSTS *********************************************************************************
@@ -1122,6 +1147,37 @@ exports.application_addliability_post = function (req, res) {
 
     res.redirect('/app/v1/application/liabilities');
 
+}
+
+exports.application_equity_post = function (req, res) {
+    res.redirect('/app/v1/application/equity');
+}
+
+exports.application_addequity_post = function (req, res) {
+
+    var listOfItems = req.session.data["equitylist"];
+  
+    // Check the session
+
+    var listOfItems = [];
+
+    if (req.session.data['equitylist'] !== undefined) {
+        listOfItems = req.session.data['equitylist'];
+    }
+
+    var eamount = req.body['e-amount'].replace(/,/g, '');
+    var epercent = req.body['e-percent'].replace(/,/g, '');
+
+    listOfItems.push({
+        value: cleanNumber(eamount),
+        details: req.body['e-details'],
+        percent: cleanNumber(epercent),
+        id: uuidv4()
+    })
+
+    req.session.data['equitylist'] = listOfItems;
+
+    res.redirect('/app/v1/application/equity');
 }
 
 

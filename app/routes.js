@@ -155,6 +155,9 @@ router.get('/app/v1/application/remove-asset/:id', applicationController.applica
 router.get('/app/v1/application/liabilities-total', applicationController.application_totalliabilities_get);
 router.get('/app/v1/application/liabilities', applicationController.application_liabilities_get);
 router.get('/app/v1/application/add-liability', applicationController.application_addliability_get);
+router.get('/app/v1/application/equity', applicationController.application_equity_get);
+router.get('/app/v1/application/add-equity', applicationController.application_addequity_get);
+router.get('/app/v1/application/remove-equity/:id', applicationController.application_removeequity_get);
 
 
 // Posts
@@ -265,7 +268,8 @@ router.post('/app/v1/application/add-asset', applicationController.application_a
 router.post('/app/v1/application/liabilities-total', applicationController.application_totalliabilities_post);
 router.post('/app/v1/application/liabilities', applicationController.application_liabilities_post);
 router.post('/app/v1/application/add-liability', applicationController.application_addliability_post);
-
+router.post('/app/v1/application/equity', applicationController.application_equity_post);
+router.post('/app/v1/application/add-equity', applicationController.application_addequity_post);
 
 
 module.exports = router

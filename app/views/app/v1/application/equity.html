@@ -1,0 +1,115 @@
+{% extends "layout-authenticated.html" %}
+
+{% block pageTitle %}
+Tell us about any assets and liabilities you have which are {{allimit}}
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+<div class=" govuk-width-container">
+    <div class="navigation-service">
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <p class="govuk-!-font-weight-bold govuk-!-margin-bottom-1">Personal X licence</p>
+                <p class="govuk-body-s  govuk-!-margin-bottom-2">Reference: PXL-123456</p>
+            </div>
+            <div class="govuk-grid-column-one-third">
+                <p class="govuk-body-s  govuk-!-margin-bottom-2 gc-text-right"><a
+                        href="/app/v1/application/tasks">Application tasks</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block beforeContent %}
+<a href="/app/v1/application/assets-total" class="govuk-back-link">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Tell us about any equity holdings you have</h1>
+        <form method="POST">
+
+
+
+            {% if data['equitylist'].length > 0 %}
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption"><span class="govuk-visually-hidden">Equity holdings</span></caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="col">Name</th>
+                        <th class="govuk-table__header" scope="col">% held</th>
+                        <th class="govuk-table__header" scope="col">Value</th>
+                        <th class="govuk-table__header" scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+
+                    {%for i in data['equitylist'] %}
+
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">{{ i.details | truncate(20) }}</td>
+                        <td class="govuk-table__cell">{{i.percent}}%</td>
+                        <td class="govuk-table__cell">£{{i.value | numeral}}</td>
+                        <td class="govuk-table__cell"><a href="/app/v1/application/remove-equity/{{i.id}}">Remove <span
+                                    class="govuk-visually-hidden">{{i.type}} for {{i.amount}}</span></a></td>
+                    </tr>
+                    {%endfor%}
+
+                </tbody>
+            </table>
+
+    
+
+          
+            <p class="govuk-body govuk-!-margin-bottom-9"><a href="/app/v1/application/add-equity">Add equity holding</a></p>
+
+         
+            <button class="govuk-button" data-module="govuk-button">
+                Save and continue
+            </button>
+            {% else %}
+
+         
+
+                <p class="govuk-body">No holdings have been added</p>              
+       
+    
+
+
+                <p class="govuk-body govuk-!-margin-bottom-9"><a href="/app/v1/application/add-equity">Add equity holdings</a></p>
+
+          
+
+            {% endif%}
+
+
+            <a href="/app/v1/application/assets-total" class="govuk-button">Save and continue</a>
+
+
+
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block pageHelp %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m">What this page is for</h3>
+        <p class="govuk-body">This page displays applications that have been started but not yet paid and submitted.
+            Clicking on the applicant name will take the user to the outstanding tasks for the application.</p>
+        <h3 class="govuk-heading-m">Known issues</h3>
+        <p class="govuk-body">There are no known issues for this page.</p>
+    </div>
+</div>
+{% endblock %}
