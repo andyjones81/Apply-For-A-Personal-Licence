@@ -40,7 +40,7 @@ exports.security_code_post = function (req, res) {
     if (req.session.data['code'] !== "180681") {
         return res.redirect('/app/v1/security/failed-to-register');
     }
-    res.redirect('/app/v1/account/name-password');
+    res.redirect('/app/v1/account/set-password');
 }
 
 
