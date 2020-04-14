@@ -3,7 +3,7 @@
         "type": "pml",
         "id": "credit-report",
         "documentType": "Credit report",
-        "documentDescription": "We use a credit report to assess credit worthiness",
+        "documentDescription": "We use a credit report to assess the integrity of an applicant",
         "order": 10
     }]
 }
