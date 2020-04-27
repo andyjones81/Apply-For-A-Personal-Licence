@@ -33,9 +33,10 @@ Tell us about any liabilities and liabilities you have which are {{allimit}}
 <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Tell us about your liabilities up to a total value of
-            £{{data['liabilities70Percent'] | numeral}}</h1>
-        <p>We only need to know about 70% of your liabilities.</p>
+        <h1 class="govuk-heading-l">Tell us about your liabilities</h1>
+        <p>You have declared a total value of liabilities of £{{data['liabilities70Percent'] | numeral}}
+            If this is wrong, go back to the previous page.
+        </p>
         <form method="POST">
 
 
@@ -72,7 +73,7 @@ Tell us about any liabilities and liabilities you have which are {{allimit}}
             <p class="govuk-body">You don't need to add any more liabilities.
             </p> 
             {% else %}
-            <p class="govuk-body govuk-!-font-weight-bold">You need to add more liabilities up to £{{data['liabilitiesLeftToAdd'] | numeral}}.
+            <p class="govuk-body govuk-!-font-weight-bold">You need to know details of individual liabilities which make up at least 70% of your asset total. 
             </p>  
             
             <p class="govuk-body govuk-!-margin-bottom-9"><a href="/app/v1/application/add-liability">Add more liabilities </a></p>
