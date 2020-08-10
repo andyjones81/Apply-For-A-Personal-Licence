@@ -596,6 +596,11 @@ exports.application_equity_post = function (req, res) {
 }
 
 exports.application_name_post = function (req, res) {
+
+ 
+
+   
+
     res.redirect('/app/v1/application/date-of-birth');
 }
 

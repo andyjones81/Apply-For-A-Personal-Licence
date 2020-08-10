@@ -19,13 +19,13 @@ exports.security_createaccount_post = function (req, res) {
 
     //Send a code
     notify
-        .sendEmail('a5a89337-ef7d-4aa6-809d-183d308aa130', req.session.data['email'], {
+        .sendEmail(process.env.securityemail, req.session.data['email'], {
             personalisation: {
                 'code': '180681'
             }
         })
         .then(response => console.log("Sent"))
-        .catch(err => console.error("errored"))
+        .catch(err => console.error(err.error))
 
     res.redirect('/app/v1/security/code');
 }
@@ -40,7 +40,7 @@ exports.security_code_post = function (req, res) {
     if (req.session.data['code'] !== "180681") {
         return res.redirect('/app/v1/security/failed-to-register');
     }
-    res.redirect('/app/v1/account/set-password');
+    res.redirect('/app/v1/security/set-password');
 }
 
 

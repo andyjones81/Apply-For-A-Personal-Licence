@@ -20,7 +20,7 @@
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Enter the code to confirm your email address</h1>
 
-        <p class="govuk-body">We've sent a code to <span class="govuk-!-font-weight-bold">someone@example.com</span></p>
+        <p class="govuk-body">We've sent a code to <span class="govuk-!-font-weight-bold">{{data['email']}}</span></p>
 
         <div class="govuk-inset-text">
             If you use a browser to access your email, you may need to open a new window or tab to see the code.
@@ -46,7 +46,7 @@
                 </summary>
                 <div class="govuk-details__text">
                     <p class="govuk-body">It might take a few minutes for the email to arrive. The subject of the email
-                        is 'Confirm your email address - Apply for a licence'.</p>
+                        is 'Confirm your email address - Apply for a personal licence'.</p>
 
                     <p class="govuk-body">If you still haven't got the email, check your spam or junk folder. If it's
                         not there you can <a href="/app/v1/security/create-account">request a new code</a> or <a
