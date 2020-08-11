@@ -24,7 +24,7 @@ Tell us about any liabilities and liabilities you have which are {{allimit}}
         <p>You have declared a total value of liabilities of £{{data['liabilities70Percent'] | numeral}}
             If this is wrong, go back to the previous page.
         </p>
-        <form method="POST">
+        <form method="POST" >
 
 
 
@@ -56,7 +56,7 @@ Tell us about any liabilities and liabilities you have which are {{allimit}}
 
       
 
-            {% if data['liabilitiesLeftToAdd']  <0 %}
+            {% if data['liabilitiesLeftToAdd']  < 0 %}
             <p class="govuk-body">You don't need to add any more liabilities.
             </p> 
             {% else %}
@@ -70,9 +70,7 @@ Tell us about any liabilities and liabilities you have which are {{allimit}}
 
          
 
-            <button class="govuk-button" data-module="govuk-button">
-                Save and continue
-            </button>
+            <a href="/app/v1/application/employment" class="govuk-button">Save and continue</a>
             {% else %}
 
             <div class="govuk-inset-text">

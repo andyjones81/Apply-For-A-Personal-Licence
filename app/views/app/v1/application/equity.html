@@ -12,7 +12,7 @@ Tell us about any assets and liabilities you have which are {{allimit}}
 {% endblock %}
 
 {% block beforeContent %}
-<a href="/app/v1/application/assets-total" class="govuk-back-link">Back</a>
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block content %}
@@ -73,14 +73,14 @@ Tell us about any assets and liabilities you have which are {{allimit}}
 
                 <p class="govuk-body govuk-!-margin-bottom-9"><a href="/app/v1/application/add-equity">Add equity holdings</a></p>
 
-          
+           <a href="/app/v1/application/assets-total" class="govuk-button">I don't have any to add</a>
+
+
 
             {% endif%}
 
 
-            <a href="/app/v1/application/assets-total" class="govuk-button">Save and continue</a>
-
-
+           
 
 
         </form>

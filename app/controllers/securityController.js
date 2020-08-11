@@ -1,6 +1,12 @@
 var NotifyClient = require('notifications-node-client').NotifyClient,
     notify = new NotifyClient(process.env.NotifyKey);
 
+
+    exports.home_get = function (req, res) {
+        res.redirect('/app/v1/security/signin');
+    }
+    
+
 exports.security_signin_get = function (req, res) {
     res.render('app/v1/security/signin', {});
 }

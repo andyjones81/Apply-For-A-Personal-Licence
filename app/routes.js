@@ -16,6 +16,8 @@ router.post('/', function (req, res) {
     res.redirect('/')
   })
 
+  router.get('/', securityController.home_get);
+
 
 // SECURITY
 router.get('/app/v1/security/signin', securityController.security_signin_get);

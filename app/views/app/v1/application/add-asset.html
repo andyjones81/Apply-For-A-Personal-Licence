@@ -13,7 +13,7 @@ Are you adding an asset or a liability?
 {% endblock %}
 
 {% block beforeContent %}
-<a href="/app/v1/application/assets" class="govuk-back-link">Back</a>
+<a href="/" onclick="window.history.go(-1); return false;" class="govuk-back-link">Back</a>
 {% endblock %}
 
 {% block content %}

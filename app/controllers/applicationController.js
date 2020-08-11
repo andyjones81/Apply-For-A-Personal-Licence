@@ -27,7 +27,19 @@ exports.application_equity_get = function (req, res) {
 }
 
 exports.application_name_get = function (req, res) {
-    res.render('app/v1/application/name', {});
+
+
+// Changes for the usability testing
+
+if(req.session.data['licence-type'] !== 'Functional licence'){
+res.redirect('/app/v1/application/equity');
+}
+else{
+    res.render('app/v1/application/not-testing', {});
+}
+
+
+   
 }
 
 exports.application_dob_get = function (req, res) {
@@ -592,7 +604,7 @@ exports.application_roles_post = function (req, res) {
 }
 
 exports.application_equity_post = function (req, res) {
-    res.redirect('/app/v1/application/name');
+    res.redirect('/app/v1/application/assets');
 }
 
 exports.application_name_post = function (req, res) {
@@ -708,7 +720,9 @@ exports.application_add_previous_name_post = function (req, res) {
 }
 
 exports.application_assets_liabilities_post = function (req, res) {
-    res.redirect('/app/v1/application/financial');
+    // res.redirect('/app/v1/application/financial');
+
+    res.redirect('/app/v1/application/employment');
 }
 
 exports.application_add_assets_liabilities_post = function (req, res) {
@@ -901,7 +915,7 @@ exports.application_gambling_training_list_post = function (req, res) {
 
 
 exports.application_qualifications_post = function (req, res) {
-    res.redirect('/app/v1/application/licences');
+    res.redirect('/app/v1/application/done');
 }
 
 exports.application_qualifications_body_post = function (req, res) {
@@ -921,7 +935,7 @@ exports.application_qualifications_check_post = function (req, res) {
 }
 
 exports.application_qualifications_list_post = function (req, res) {
-    res.render('app/v1/application/licences');
+    res.redirect('/app/v1/application/done');
 }
 
 
@@ -1088,8 +1102,10 @@ exports.application_totalliabilities_post = function (req, res) {
     var liabilities70Percent = "";
     var total = cleanNumber(req.session.data['totalliabilities']);
 
+    // Changes for UR 
     if (total < 50000) {
-        res.redirect('/app/v1/application/criminality');
+        res.redirect('/app/v1/application/employment');
+        //res.redirect('/app/v1/application/criminality');
     }
     else {
         liabilities70Percent = (total * 0.70);
@@ -1100,7 +1116,8 @@ exports.application_totalliabilities_post = function (req, res) {
 }
 
 exports.application_liabilities_post = function (req, res) {
-    res.redirect('/app/v1/application/liabilities');
+    console.log('liability post')
+    res.redirect('/app/v1/application/employment');
 }
 
 
