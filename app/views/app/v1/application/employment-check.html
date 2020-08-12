@@ -75,6 +75,55 @@ Check your answers before adding this to your application
                         </dd>
                     </div>
 
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Start date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {% set date = (data['employed-start-month'] + '/01/' + data['employed-start-year']) %}
+                            {{date | date('MMMM YYYY')}}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="/app/v1/application/employment-dates">
+                                Change<span class="govuk-visually-hidden"> date</span>
+                            </a>
+                        </dd>
+                    </div>
+
+                    {% if data['employment-type'] === 'Previous' %}
+
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            End date
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {% set date = (data['employed-end-month'] + '/01/' + data['employed-end-year']) %}
+                            {{date | date('MMMM YYYY')}}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="/app/v1/application/employment-dates-end">
+                                Change<span class="govuk-visually-hidden"> date</span>
+                            </a>
+                        </dd>
+                    </div>
+
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                            Reason for leaving
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                            {{data['leaving-reason']}}
+                        </dd>
+                        <dd class="govuk-summary-list__actions">
+                            <a class="govuk-link" href="/app/v1/application/employment-dates-end">
+                                Change<span class="govuk-visually-hidden"> reason</span>
+                            </a>
+                        </dd>
+                    </div>
+
+                    {% endif %}
+
             </dl>
 
             <button class="govuk-button" data-module="govuk-button" type="submit">

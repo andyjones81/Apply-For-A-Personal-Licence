@@ -24,14 +24,14 @@ exports.security_createaccount_get = function (req, res) {
 exports.security_createaccount_post = function (req, res) {
 
     //Send a code
-    notify
-        .sendEmail(process.env.securityemail, req.session.data['email'], {
-            personalisation: {
-                'code': '180681'
-            }
-        })
-        .then(response => console.log("Sent"))
-        .catch(err => console.error(err.error))
+    // notify
+    //     .sendEmail(process.env.securityemail, req.session.data['email'], {
+    //         personalisation: {
+    //             'code': '180681'
+    //         }
+    //     })
+    //     .then(response => console.log("Sent"))
+    //     .catch(err => console.error(err.error))
 
     res.redirect('/app/v1/security/code');
 }

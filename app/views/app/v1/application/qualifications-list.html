@@ -44,15 +44,18 @@ Tell us about any gambling-related training you've had, having or going to have
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row">{{data['qualification-name']}}
-                    </th>
-                    <td class="govuk-table__cell">
-                            {% set date = (data['qualification-date-month'] + '/' + data['qualification-date-day'] + '/' + data['qualification-date-year']) %}
-                            {{date | date('DD MMMM YYYY')}}</td>
-                    <td class="govuk-table__cell"><a href="/app/v1/application/qualifications">Remove
-                            <span class="govuk-visually-hidden"> {{data['qualification-name']}}</span></a></td>
-                </tr>
+               
+                <tbody class="govuk-table__body">
+                    {% for qualification in listOfItems %}
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row">{{qualification.trainer}}
+                        </th>
+                        <td class="govuk-table__cell">{{qualification.date | date('DD MMMM YYYY')}}</td>
+                        <td class="govuk-table__cell"><a href="/app/v1/application/remove-qualification/{{qualification.id}}">Remove
+                                <span class="govuk-visually-hidden"> {{qualification.trainer}} </span></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
             </tbody>
         </table>
 

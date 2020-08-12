@@ -403,7 +403,27 @@ exports.application_qualifications_check_get = function (req, res) {
 }
 
 exports.application_qualifications_list_get = function (req, res) {
-    res.render('app/v1/application/qualifications-list', {});
+    var listOfItems =  req.session.data['qualificationList'];
+    res.render('app/v1/application/qualifications-list', {listOfItems});
+}
+
+exports.application_removequalification_get = function (req, res) {
+    var id = req.params.id;
+    var listOfItems = [];
+    var listOfItems = req.session.data["qualificationList"];
+
+    // Check the session
+
+    var sessionObject = listOfItems.filter(function (value) {
+        return value.id !== id;
+    });
+
+    req.session.data["qualificationList"] = sessionObject;
+
+
+    res.redirect('/app/v1/application/qualifications-list');
+
+
 }
 
 
@@ -423,15 +443,41 @@ exports.application_employment_role_get = function (req, res) {
     res.render('app/v1/application/employment-role', {});
 }
 
+exports.application_employment_dates_get = function (req, res) {
+    res.render('app/v1/application/employment-dates', {});
+}
+
+exports.application_employment_dates_end_get = function (req, res) {
+    res.render('app/v1/application/employment-dates-end', {});
+}
+
 exports.application_employment_check_get = function (req, res) {
     res.render('app/v1/application/employment-check', {});
 }
 
 exports.application_employment_list_get = function (req, res) {
-    res.render('app/v1/application/employment-list', {});
+    var listOfItems =  req.session.data['employmentList'];
+    res.render('app/v1/application/employment-list', {listOfItems});
 }
 
+exports.application_removeemployment_get = function (req, res) {
+    var id = req.params.id;
+    var listOfItems = [];
+    var listOfItems = req.session.data["employmentList"];
 
+    // Check the session
+
+    var sessionObject = listOfItems.filter(function (value) {
+        return value.id !== id;
+    });
+
+    req.session.data["employmentList"] = sessionObject;
+
+
+    res.redirect('/app/v1/application/employment-list');
+
+
+}
 
 exports.application_licences_get = function (req, res) {
     res.render('app/v1/application/licences', {});
@@ -931,6 +977,31 @@ exports.application_qualifications_details_post = function (req, res) {
 }
 
 exports.application_qualifications_check_post = function (req, res) {
+
+
+    
+    var listOfItems = [];
+
+    if (req.session.data['qualificationList'] !== undefined) {
+        listOfItems = req.session.data['qualificationList'];
+    }
+
+    
+
+    listOfItems.push({
+        trainer: req.session.data['qualification-name'],
+        date: req.session.data['qualification-date-month'] + '/' + req.session.data['qualification-date-day'] + '/' + req.session.data['qualification-date-year'],
+        id: uuidv4()
+    })
+
+    req.session.data['qualificationList'] = listOfItems;
+
+    req.session.data['qualification-name'] = '';
+    req.session.data['qualification-date-day'] = '';
+    req.session.data['qualification-date-month'] = '';
+    req.session.data['qualification-date-year'] = '';
+
+
     res.redirect('/app/v1/application/qualifications-list');
 }
 
@@ -952,10 +1023,47 @@ exports.application_employment_name_post = function (req, res) {
 }
 
 exports.application_employment_role_post = function (req, res) {
+    res.redirect('/app/v1/application/employment-dates');
+}
+
+exports.application_employment_dates_post = function (req, res) {
+    if(req.session.data['employment-type'] === 'Previous'){
+        res.redirect('/app/v1/application/employment-dates-end');
+    }else{
+        res.redirect('/app/v1/application/employment-check');
+    }
+}
+
+exports.application_employment_dates_end_post = function (req, res) {
     res.redirect('/app/v1/application/employment-check');
 }
 
 exports.application_employment_check_post = function (req, res) {
+ 
+    var listOfItems = [];
+
+    if (req.session.data['employmentList'] !== undefined) {
+        listOfItems = req.session.data['employmentList'];
+    }
+
+    listOfItems.push({
+        type: req.session.data['employment-type'],
+        employer: req.session.data['employer-name'],
+        id: uuidv4()
+    })
+
+    req.session.data['employmentList'] = listOfItems;
+
+    req.session.data['employment-type'] = '';
+    req.session.data['employer-name'] = '';
+    req.session.data['employer-roles'] = '';
+    req.session.data['employed-start-month'] = '';
+    req.session.data['employed-start-year'] = '';
+    req.session.data['employed-end-month'] = '';
+    req.session.data['employed-end-year'] = '';
+    req.session.data['leaving-reason'] = '';
+
+
     res.redirect('/app/v1/application/employment-list');
 }
 

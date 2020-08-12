@@ -34,6 +34,7 @@ Tell us about any current or previous gambling-related employment
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Tell us about any current or previous gambling-related employment</h1>
 
+      
         <table class="govuk-table">
             <caption class="govuk-table__caption govuk-heading-m">Employment</caption>
             <thead class="govuk-table__head">
@@ -44,13 +45,15 @@ Tell us about any current or previous gambling-related employment
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
+                {% for employment in listOfItems %}
                 <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row">{{data['employment-type']}}
+                    <th class="govuk-table__header" scope="row">{{employment.type}}
                     </th>
-                    <td class="govuk-table__cell">{{data['employer-name']}}</td>
-                    <td class="govuk-table__cell"><a href="/app/v1/application/employment">Remove
-                            <span class="govuk-visually-hidden"> {{data['employment-name']}}</span></a></td>
+                    <td class="govuk-table__cell">{{employment.employer}}</td>
+                    <td class="govuk-table__cell"><a href="/app/v1/application/remove-employment/{{employment.id}}">Remove
+                            <span class="govuk-visually-hidden"> {{employment.type}} employment with {{employment.employer}}</span></a></td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
 

@@ -33,7 +33,6 @@ Tell us about your roles and responsibilities in this employment
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         
-            <span class="govuk-caption-l">Question 3 of 3</span>
         <h1 class="govuk-heading-l">Tell us about your roles and responsibilities in this employment</h1>
 
         <form method="POST">
@@ -44,7 +43,7 @@ Tell us about your roles and responsibilities in this employment
                     Roles and responsibilities
                   </label>
                  
-                  <textarea class="govuk-textarea govuk-js-character-count" id="employer-roles" name="employer-roles" rows="5" aria-describedby="employer-roles-info employer-roles-hint"></textarea>
+                  <textarea class="govuk-textarea govuk-js-character-count" id="employer-roles" name="employer-roles" rows="5" aria-describedby="employer-roles-info employer-roles-hint">{{data['employer-roles']}}</textarea>
                 </div>
               
                 <span id="employer-roles-info" class="govuk-hint govuk-character-count__message" aria-live="polite">

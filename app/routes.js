@@ -121,12 +121,17 @@ router.get('/app/v1/application/qualifications-date', applicationController.appl
 router.get('/app/v1/application/qualifications-details', applicationController.application_qualifications_details_get);
 router.get('/app/v1/application/qualifications-check', applicationController.application_qualifications_check_get);
 router.get('/app/v1/application/qualifications-list', applicationController.application_qualifications_list_get);
+
+router.get('/app/v1/application/remove-qualification/:id', applicationController.application_removequalification_get);
 router.get('/app/v1/application/employment', applicationController.application_employment_get);
 router.get('/app/v1/application/employment-type', applicationController.application_employment_type_get);
 router.get('/app/v1/application/employment-name', applicationController.application_employment_name_get);
 router.get('/app/v1/application/employment-role', applicationController.application_employment_role_get);
 router.get('/app/v1/application/employment-check', applicationController.application_employment_check_get);
+router.get('/app/v1/application/employment-dates', applicationController.application_employment_dates_get);
+router.get('/app/v1/application/employment-dates-end', applicationController.application_employment_dates_end_get);
 router.get('/app/v1/application/employment-list', applicationController.application_employment_list_get);
+router.get('/app/v1/application/remove-employment/:id', applicationController.application_removeemployment_get);
 router.get('/app/v1/application/licences', applicationController.application_licences_get);
 router.get('/app/v1/application/licence-type', applicationController.application_licences_type_get);
 router.get('/app/v1/application/licence-status', applicationController.application_licences_status_get);
@@ -241,6 +246,8 @@ router.post('/app/v1/application/employment-name', applicationController.applica
 router.post('/app/v1/application/employment-role', applicationController.application_employment_role_post);
 router.post('/app/v1/application/employment-check', applicationController.application_employment_check_post);
 router.post('/app/v1/application/employment-list', applicationController.application_employment_list_post);
+router.post('/app/v1/application/employment-dates', applicationController.application_employment_dates_post);
+router.post('/app/v1/application/employment-dates-end', applicationController.application_employment_dates_end_post);
 
 router.post('/app/v1/application/licences', applicationController.application_licences_post);
 router.post('/app/v1/application/licence-type', applicationController.application_licences_type_post);
