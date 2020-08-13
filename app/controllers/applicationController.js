@@ -650,6 +650,7 @@ exports.application_roles_post = function (req, res) {
 }
 
 exports.application_equity_post = function (req, res) {
+    console.log('equity post');
     res.redirect('/app/v1/application/assets');
 }
 
