@@ -1,0 +1,430 @@
+{% extends "layout-app-anon.html" %}
+
+{% block pageTitle %}
+Apply for a personal licence prototype
+{% endblock %}
+
+{% block heroClass %}
+{% endblock %}
+
+{% block heroContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Apply for a personal licence prototype</h1>
+    <p class="govuk-body">This is a prototype, you can get to any page within the prototype using this page.</p>
+
+    
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Security
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content"
+          aria-labelledby="accordion-default-heading-1">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Standard view</th>
+                <th scope="col" class="govuk-table__header">Error view</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/security/signin">Sign in</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/security/forgot-password">Request password reset</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/security/reset-sent">Password reset sent</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/security/set-password">Set new password</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/security/create-account">Create an account</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/security/code">Enter code</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/security/failed-to-register">Failed to register</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <!-- <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/account/name-password">Name and password</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+              Hub and Notifications
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content"
+          aria-labelledby="accordion-default-heading-2">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Standard view</th>
+                <th scope="col" class="govuk-table__header">Error view</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/applicationhub/v2/hub-no-apps">No apps</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/applicationhub/v2/hub-with-apps">In progress apps</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/applicationhub/v2/hub-with-apps-submitted">Submitted apps</a>
+                </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2a">
+              Profile management
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2a" class="govuk-accordion__section-content"
+          aria-labelledby="accordion-default-heading-2a">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Standard view</th>
+                <th scope="col" class="govuk-table__header">Error view</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/profile/">Profile summary</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+              Application pages
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-3" class="govuk-accordion__section-content"
+          aria-labelledby="accordion-default-heading-3">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Standard view</th>
+                <th scope="col" class="govuk-table__header">Error view</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pre-for">Pre-app - Application for</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/start">Pre-app - App type</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pre-sectors">Pre-app - Sector</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pre-role">Pre-app - Roles</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pre-shareholder">Pre-app - Shareholder</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/name">Name</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/date-of-birth">Date of birth</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/place-of-birth">Place of birth</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/home-address">Where is your home address</a>
+                </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/postcode">Postcode search</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/address-results">Address search results</a>
+                </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/full-address">Supplementary home address
+                    info</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/home-overseas">Overseas address</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/sex">Sex</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/previous-names">Previous names</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/add-previous-name">Add previous name</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/dbs-consent">DBS Consent</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/identity-types">DBS Identity types</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/driving-licence">Driving licence</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/national-insurance">National Insurance</a>
+                </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/passport">Passport</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/id-verification">ID Verification</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/equity">Equity</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/assets-total">Total assets</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/assets">Assets list</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/add-asset">Add asset</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/liabilities-total">Total liabilites</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/liabilities">Liabilities</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/add-liability">Add liability</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/financial">Financial</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/criminality-initial">Criminality</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/gamblinginvestigations-initial">Gambling
+                    investigations</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/gambling-training">Gambling
+                    training</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/qualifications">Qualifications</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/employment">Employment history</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/associated-accounts">Associated accounts/apps</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/associated-accounts-list">Associated accounts/apps list</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/documents">Documents</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/document-detail">Document detail</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+             
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/document-upload">Document upload</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/third-party">Third party declaration</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/declaration">Application declaration</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pay">Pay</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pay-cancelled">Payment cancelled</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/pay-declined">Payment declined</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/complete">Complete</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/complete-gc">Complete (GC ID)</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/tasks">Tasks</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              Application progress
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content"
+          aria-labelledby="accordion-default-heading-4">
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Standard view</th>
+                <th scope="col" class="govuk-table__header">Error view</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/progress">Progress</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/progress-with-request">Progress with request for additional info</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+         
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell"><a href="/app/v1/application/progress-addinfo">Progress - Add info</a></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+            
+
+        
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+{% endblock %}
