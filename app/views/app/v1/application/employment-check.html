@@ -37,7 +37,7 @@ Check your answers before adding this to your application
             <dl class="govuk-summary-list">
                 <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                        Previous or current
+                        Gambling related employment
                     </dt>
                     <dd class="govuk-summary-list__value">
                         {{data['employment-type']}}
@@ -90,7 +90,7 @@ Check your answers before adding this to your application
                         </dd>
                     </div>
 
-                    {% if data['employment-type'] === 'Previous' %}
+                    {% if data['still-work-here'] === 'No' %}
 
 
                     <div class="govuk-summary-list__row">
@@ -102,7 +102,7 @@ Check your answers before adding this to your application
                             {{date | date('MMMM YYYY')}}
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="/app/v1/application/employment-dates-end">
+                            <a class="govuk-link" href="/app/v1/application/employment-dates">
                                 Change<span class="govuk-visually-hidden"> date</span>
                             </a>
                         </dd>
@@ -116,7 +116,7 @@ Check your answers before adding this to your application
                             {{data['leaving-reason']}}
                         </dd>
                         <dd class="govuk-summary-list__actions">
-                            <a class="govuk-link" href="/app/v1/application/employment-dates-end">
+                            <a class="govuk-link" href="/app/v1/application/employment-dates">
                                 Change<span class="govuk-visually-hidden"> reason</span>
                             </a>
                         </dd>
@@ -127,7 +127,7 @@ Check your answers before adding this to your application
             </dl>
 
             <button class="govuk-button" data-module="govuk-button" type="submit">
-                Add record and continue
+                Add and continue
             </button>
         </form>
     </div>

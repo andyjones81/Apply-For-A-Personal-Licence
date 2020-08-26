@@ -25,35 +25,19 @@ Are you adding an asset or a liability?
 
             <h1 class="govuk-heading-l">Tell us about the equity holding you are adding</h1>
 
-            <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+       
                 <div class="govuk-form-group">
                     <label class="govuk-label" for="e-details">
-                        Details of the holding
+                        Name of company the equity is held in
                     </label>
+                    <input class="govuk-input" id="e-details" name="e-details" type="text">
 
-                    <textarea class="govuk-textarea govuk-js-character-count" id="e-details" name="e-details" rows="5"
-                        aria-describedby="a-details-info a-details-hint"></textarea>
+           
                 </div>
 
-                <span id="a-details-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
-                    You can enter up to 200 characters
-                </span>
-            </div>
-
-            <div class="govuk-form-group">
-                <label class="govuk-label" for="e-percent">
-                    Percentage of equity held (I'll make this an appended control so the % flows to the end)
-                </label>
-                <div id="alamount" class="govuk-visually-hidden">in percent</div>
-                <div class="gc-currency-input">
-                    <div class="gc-currency-input__symbol" aria-hidden="true">%</div>
-                    <input class="govuk-input govuk-input--width-10" id="e-percent" name="e-percent" type="text"
-                        aria-describedby="amount-currency">
-                </div>
-            </div>
-            <div class="govuk-form-group">
+         <div class="govuk-form-group">
                 <label class="govuk-label" for="e-amount">
-                    Value of the holding
+                    Current value of the holding
                 </label>
                 <div id="alamount" class="govuk-visually-hidden">in pounds</div>
                 <div class="gc-currency-input">
@@ -64,6 +48,19 @@ Are you adding an asset or a liability?
                 </div>
             </div>
 
+
+            <div class="govuk-form-group">
+                <label class="govuk-label" for="e-percent">
+                    Percentage of current equity held
+                </label>
+                <div id="alamount" class="govuk-visually-hidden">in percent</div>
+                <div class="gc-currency-input">
+                    <div class="gc-currency-input__symbol" aria-hidden="true">%</div>
+                    <input class="govuk-input govuk-input--width-10" id="e-percent" name="e-percent" type="text"
+                        aria-describedby="amount-currency">
+                </div>
+            </div>
+          
 
 
             <button class="govuk-button" data-module="govuk-button">

@@ -21,9 +21,14 @@ Tell us about any liabilities and liabilities you have which are {{allimit}}
 
     <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Tell us about your liabilities</h1>
-        <p>You have declared a total value of liabilities of £{{data['liabilities70Percent'] | numeral}}
-            If this is wrong, go back to the previous page.
-        </p>
+
+        <p>We need you to provide:</p>
+        <ul class="govuk-list govuk-list--bullet">
+            <li>details of liabilities up to a total value of £{{data['liabilities70Percent'] | numeral}}</li>
+            <li>and, any liabilities which individually, are more than £50,000</li>
+        </ul>
+
+    
         <form method="POST" >
 
 

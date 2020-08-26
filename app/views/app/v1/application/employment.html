@@ -1,7 +1,7 @@
 {% extends "layout-authenticated.html" %}
 
 {% block pageTitle %}
-Tell us about any current or previous gambling-related employment
+Tell us about any current or previous gambling related employment
 {% endblock %}
 
 {% block heroClass %}
@@ -32,10 +32,11 @@ Tell us about any current or previous gambling-related employment
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Tell us about any current or previous gambling-related employment</h1>
+        <h1 class="govuk-heading-l">Tell us about your employment history relevant to the role you will be working in</h1>
+        <p class="govuk-body">We need to know details of relevant employment in the last 10 years.</p>
 
         <p class="govuk-body govuk-!-margin-top-7 govuk-!-margin-bottom-7"><a
-                href="/app/v1/application/employment-type">Add details of any employment</a></p>
+                href="/app/v1/application/employment-type">Add employment details</a></p>
                 <form method="POST">
         <button class="govuk-button" data-module="govuk-button">
             I don't have any to add
