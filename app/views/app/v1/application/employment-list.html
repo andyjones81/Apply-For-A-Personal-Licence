@@ -39,17 +39,17 @@ Tell us about any current or previous gambling related employment
             <caption class="govuk-table__caption govuk-heading-m">Employment</caption>
             <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="col">Gambling related</th>
                     <th class="govuk-table__header" scope="col">Employer</th>
+                    <th class="govuk-table__header" scope="col">Gambling related</th>
                     <th class="govuk-table__header" scope="col">Action</th>
                 </tr>
             </thead>
             <tbody class="govuk-table__body">
                 {% for employment in listOfItems %}
                 <tr class="govuk-table__row">
-                    <th class="govuk-table__header" scope="row">{{employment.type}}
+                    <th class="govuk-table__header" scope="row">{{employment.employer}}
                     </th>
-                    <td class="govuk-table__cell">{{employment.employer}}</td>
+                    <td class="govuk-table__cell">{{employment.type}}</td>
                     <td class="govuk-table__cell"><a href="/app/v1/application/remove-employment/{{employment.id}}">Remove
                             <span class="govuk-visually-hidden"> {{employment.type}} employment with {{employment.employer}}</span></a></td>
                 </tr>
