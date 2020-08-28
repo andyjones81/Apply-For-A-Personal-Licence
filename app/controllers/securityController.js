@@ -3,7 +3,7 @@ var NotifyClient = require('notifications-node-client').NotifyClient,
 
 
     exports.home_get = function (req, res) {
-        res.redirect('/app/v1/security/signin');
+        res.redirect('/applicationhub/v2/hub-no-apps');
     }
     
 
